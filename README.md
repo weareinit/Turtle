@@ -303,7 +303,7 @@ requires admin token
 [Alex Comas](https://github.com/aalexcomas11)</br>
 [Jehf Denezaire](https://github.com/Jehfkemsy)</br>
 
-Big shootout to [hackfiu](https://github.com/hackfiu) for making the initial project open source
+Big shout-out to [hackfiu](https://github.com/hackfiu) for making the initial project open source
 ## LICENSE
 
 [MIT](LICENSE)
