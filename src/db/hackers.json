@@ -1,0 +1,46 @@
+[
+  {
+    "firstName": "David",
+    "lastName": "Castaneda",
+    "email": "dcast188@fiu.edu",
+    "school": "Florida International University",
+    "major": "Computer Science",
+    "levelOfStudy": "JUNIOR",
+    "resume": "https://drive.google.com/open?id=1GOsphTc3RwlO4plq5yfrZ2XgVuX21lqe",
+    "gender": "MALE",
+    "shirtSize": "MEDIUM"
+  },
+  {
+    "firstName": "Carlos",
+    "lastName": "Lahrssen",
+    "email": "clahr004@fiu.edu",
+    "school": "Florida International University",
+    "major": "Computer Science",
+    "levelOfStudy": "SOPHMORE",
+    "resume": "https://drive.google.com/open?id=1GOsphTc3RwlO4plq5yfrZ2XgVuX21lqe",
+    "gender": "MALE",
+    "shirtSize": "LARGE"
+  },
+  {
+    "firstName": "Maria",
+    "lastName": "DB",
+    "email": "maria@fiu.edu",
+    "school": "Florida International University",
+    "major": "Computer Science",
+    "levelOfStudy": "FRESHMAN",
+    "resume": "https://drive.google.com/open?id=1GOsphTc3RwlO4plq5yfrZ2XgVuX21lqe",
+    "gender": "FEMALE",
+    "shirtSize": "SMALL"
+  },
+  {
+    "firstName": "Jessica",
+    "lastName": "Suarex",
+    "email": "jessica@fiu.edu",
+    "school": "Florida International University",
+    "major": "Computer Science",
+    "levelOfStudy": "SOPHMORE",
+    "resume": "https://drive.google.com/open?id=1GOsphTc3RwlO4plq5yfrZ2XgVuX21lqe",
+    "gender": "FEMALE",
+    "shirtSize": "LARGE"
+  }
+]

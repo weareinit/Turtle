@@ -1,0 +1,34 @@
+[
+  {
+    "firstName": "David",
+    "lastName": "Castaneda",
+    "email": "dcast188@fiu.edu",
+    "levelOfStudy": "JUNIOR",
+    "resume": "https://drive.google.com/file/d/1rnVqehjtTM5a_0L2Mw5urrJroIukDPKB/view?usp=drivesdk",
+    "company": "carnival"
+  },
+  {
+    "firstName": "Carlos",
+    "lastName": "Lahrssen",
+    "email": "clahr004@fiu.edu",
+    "levelOfStudy": "SOPHMORE",
+    "resume": "https://drive.google.com/file/d/1rnVqehjtTM5a_0L2Mw5urrJroIukDPKB/view?usp=drivesdk",
+    "company": "carnival"
+  },
+  {
+    "firstName": "Maria",
+    "lastName": "DB",
+    "email": "maria@fiu.edu",
+    "levelOfStudy": "FRESHMAN",
+    "resume": "https://drive.google.com/file/d/1rnVqehjtTM5a_0L2Mw5urrJroIukDPKB/view?usp=drivesdk",
+    "company": "ge"
+  },
+  {
+    "firstName": "Jessica",
+    "lastName": "Suarex",
+    "email": "jessica@fiu.edu",
+    "levelOfStudy": "SOPHMORE",
+    "resume": "https://drive.google.com/file/d/1rnVqehjtTM5a_0L2Mw5urrJroIukDPKB/view?usp=drivesdk",
+    "company": "express"
+  }
+]

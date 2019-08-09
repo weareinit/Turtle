@@ -1,0 +1,6 @@
+{
+  "printWidth": 1000,
+  "singleQuote": false,
+  "trailingComma": "none",
+  "parser": "babel"
+}
