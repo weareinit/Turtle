@@ -1,5 +1,5 @@
 # Turtle
-🐢 RESTful services  built upon hackfiu/pear
+RESTful services  built upon [hackfiu/pear](https://github.com/hackfiu/pear)
 
 ![Turtle](https://cdn.discordapp.com/attachments/589556333414449152/609210455474438144/Capture.PNG)
 
@@ -44,7 +44,7 @@ _Example inliner code_
 
 Once you pass it through the inliner, you can now use it as a template.
 
-## routes
+## Routes
 
 ### POST `/application`
 -To create a new hacker object into the database
@@ -295,3 +295,15 @@ requires admin token
     "title": "example"
   }
 ```
+
+## Contributors
+
+[Tommy Carrascal](https://github.com/Tommy2016x)</br>
+[Maurice Barnes](https://github.com/Barnes2197)</br>
+[Alex Comas](https://github.com/aalexcomas11)</br>
+[Jehf Denezaire](https://github.com/Jehfkemsy)</br>
+
+Big shootout to [hackfiu](https://github.com/hackfiu) for making the initial project open source
+## LICENSE
+
+[MIT](LICENSE)
