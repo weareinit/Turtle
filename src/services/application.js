@@ -117,7 +117,7 @@ const resetPasswordValidation = async(email, newPassword, token) => {
       throw new Error(["Reset password token must be provided"]);
     }
 
-    if(token != applicant.resetPasswordToken.trim()){
+    if(token.toLowerCase() != applicant.resetPasswordToken.trim()){
       console.log("token " + token + " provided token: " +  applicant.resetPasswordToken);
       throw new Error(["Token is invalid"]);
     }
