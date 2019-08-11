@@ -25,19 +25,20 @@ const asyncWrite = payload =>
         });
     });
 
-const write = async(sheet, fields) => {
+const write = async (sheet, fields) => {
+
     try {
         await auth.authorize();
 
-        const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+        const alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'AA', 'AB', 'AC', 'AD', 'AE', 'AF']
         const fieldsLength = Object.keys(fields).length;
-
         const values = [Object.keys(fields).map(key => fields[key])];
 
         const payload = {
             auth,
             spreadsheetId: GOOGLE_SPREADSHEET_ID,
             range: `${sheet}!A1:${alphabet[fieldsLength]}${fieldsLength}`,
+            insertDataOption: 'INSERT_ROWS',
             valueInputOption: "USER_ENTERED",
             resource: { values }
         };

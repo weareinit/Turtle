@@ -16,33 +16,25 @@ import createFileName from "../utils/createFileName"
 
 const { GOOGLE_FOLDER_ID, GOOGLE_SPREADSHEET_ID, SECRET_KEY } = process.env;
 
-const create = async(req, res) => {
+
+/**
+ *
+ * @param {Object} req - HTTP request
+ * @param {Object} res - HTTP response
+ */
+const create = async (req, res) => {
     const { firstName, lastName, email } = req.body;
 
     try {
-        /*
-          validate email is unique
-        */
 
         await applicationService.validateHacker(req.body);
 
         const date = new Date();
 
-        /*
-          hash password
-        */
+        //  hash password
         const hash = bcrypt.hashSync(req.body.password);
 
-
-        /*
-          generate unique shell id
-        */
         let unique = null;
-
-
-        /*
-          generate unique shell id
-        */
 
         let id;
 
@@ -95,22 +87,13 @@ const create = async(req, res) => {
             avatarID
         };
 
-
-        /**
-         * Insert applicant in the database
-         */
+        // Insert applicant in the database
         const applicant = await Applicant.create(fields);
 
-
-        /**
-         * Send applicant email
-         */
-
+        // Send applicant email
         mailService.emailVerification(applicant);
 
-        /**
-         * Insert applicant in google sheets
-         */
+        // Insert applicant in google sheets
         sheets.write("Applicants", fields);
 
         return httpResponse.successResponse(res, "success");
@@ -120,7 +103,13 @@ const create = async(req, res) => {
     }
 };
 
-const read = async(req, res) => {
+
+/**
+ *
+ * @param {Object} req - HTTP request
+ * @param {Object} res - HTTP response
+ */
+const read = async (req, res) => {
     const { page = 0, limit = 30, q, filter } = req.query;
 
     const queryLimit = parseInt(Math.abs(limit));
@@ -159,7 +148,12 @@ const read = async(req, res) => {
     }
 };
 
-const readOne = async(req, res) => {
+/**
+ * 
+ * @param {Object} req - HTTP request
+ * @param {Object} res - HTTP response
+ */
+const readOne = async (req, res) => {
     const { shellID } = req.body;
 
     try {
@@ -171,7 +165,13 @@ const readOne = async(req, res) => {
     }
 };
 
-const update = async(req, res) => {
+
+/**
+ * 
+ * @param {Object} req - HTTP request
+ * @param {Object} res - HTTP response
+ */
+const update = async (req, res) => {
     const { email } = req.query;
 
     try {
@@ -206,7 +206,12 @@ const update = async(req, res) => {
     }
 };
 
-const accept = async(req, res) => {
+/**
+ * 
+ * @param {Object} req - HTTP request
+ * @param {Object} res - HTTP response
+ */
+const accept = async (req, res) => {
     const { shellIDs } = req.body;
 
     try {
@@ -224,8 +229,13 @@ const accept = async(req, res) => {
     }
 };
 
-// changes a single hacker's status from accepted to confirmed
-const confirm = async(req, res) => {
+
+/**
+ * Changes a single hacker's status from accepted to confirmed
+ * @param {Object} req - HTTP request
+ * @param {Object} res - HTTP response
+ */
+const confirm = async (req, res) => {
     const { email } = req.body;
 
     try {
@@ -236,12 +246,18 @@ const confirm = async(req, res) => {
     }
 };
 
-const apply = async(req, res) => {
 
+
+/**
+ * Process user application
+ * @param {Object} req - HTTP request
+ * @param {Object} res - HTTP response
+ */
+const apply = async (req, res) => {
     fileService.extractResume(req, res, async err => {
         if (err) return httpResponse.failureResponse(res, err);
         const { file } = req;
-        // console.log(req)
+
         const {
             // personal
             email,
@@ -269,17 +285,12 @@ const apply = async(req, res) => {
             haveBeenToShell,
             needReimburesment,
             mlh,
-            sponsorPromo
+            sponsorPromo,
+            mlhAffiliation
         } = req.body;
 
-        // const {
-        //     firstName,
-        //     lastName,
-        // } = await Applicant.findOne({ email });
-        // const resume = createFileName(firstName, lastName, phoneNumber);
-        // console.log(resume)
         const currTime = new Date();
-        // need to generate avatarID, ShellID, and Hash password
+
         const fields = {
             // personal
             email,
@@ -309,48 +320,35 @@ const apply = async(req, res) => {
             mlh,
             sponsorPromo,
             timeApplied: currTime,
-            applicationStatus: "applied"
+            applicationStatus: "applied",
+            mlhAffiliation
         };
 
         try {
+
             if (!file) throw new Error(["Resume is required."]);
 
-            /**
-             * Validate applicant fields
-             */
-            // await applicationService.validateHacker(fields);
+            // await applicationService.validateHacker(fields);//need to unable
 
-            /**
-             * Upload resume to google drive
-             */
+            // Generate resume name
             const { firstName, lastName } = await Applicant.findOne({ email });
             const filename = createFileName(firstName, lastName, phoneNumber)
             fields.resume = "N/A";
 
+            // Upload resume
             if (GOOGLE_FOLDER_ID) {
                 const resumeUrl = await drive.upload(file, filename, GOOGLE_FOLDER_ID);
                 fields.resume = resumeUrl;
             }
 
-            /**
-             * update applicant in the database
-             */
+            // update applicant in the database
             const user = await Applicant.findOneAndUpdate({ email }, fields, { new: true }).exec();
 
+            // Send applicant email
+            mailService.applicantionConfirmation(user);
 
-            /**
-             * Send applicant email
-             */
-
-            mailService.applicantionConfirmation(fields);
-
-
-            /**
-             * Insert applicant in google sheets
-             */
-            console.log("before")
+            // Insert applicant in google sheets
             sheets.write("Applicants", fields);
-            console.log("after")
 
             return httpResponse.successResponse(res, null);
         } catch (e) {
@@ -360,14 +358,22 @@ const apply = async(req, res) => {
     });
 };
 
-const login = async(req, res) => {
+
+/**
+ * Process user login atempt
+ * @param {Object} req - HTTP request
+ * @param {Object} res - HTTP response
+ */
+const login = async (req, res) => {
+
     const { email, password } = req.body;
+
     try {
         const user = await Applicant.findOne({ email });
 
         if (!user) throw new Error(["Wrong login info"]);
 
-        if(!user.emailConfirmed) return httpResponse.failureResponse(res, "Email not verfied");
+        if (!user.emailConfirmed) return httpResponse.failureResponse(res, "Email not verfied");
 
         const correctPass = bcrypt.compareSync(password, user.password);
         if (!correctPass) throw new Error(["Wrong login info"]);
@@ -386,7 +392,12 @@ const login = async(req, res) => {
     }
 };
 
-const unconfirm = async(req, res) => {
+/**
+ * 
+ * @param {Object} req - HTTP request
+ * @param {Object} res - HTTP response
+ */
+const unconfirm = async (req, res) => {
     try {
         const { email } = req.body;
 
@@ -398,7 +409,13 @@ const unconfirm = async(req, res) => {
     }
 };
 
-const checkIn = async(req, res) => {
+
+/**
+ * Mark user as checked in
+ * @param {Object} req - HTTP request
+ * @param {Object} res - HTTP response
+ */
+const checkIn = async (req, res) => {
     const { shellID } = req.body;
 
     try {
@@ -410,7 +427,13 @@ const checkIn = async(req, res) => {
     }
 };
 
-const forgotPassword = async(req, res) => {
+
+/**
+ * Sends user token to reset password
+ * @param {Object} req - HTTP request
+ * @param {Object} res - HTTP response
+ */
+const forgotPassword = async (req, res) => {
     try {
         const { email } = req.body;
 
@@ -438,7 +461,13 @@ const forgotPassword = async(req, res) => {
     }
 };
 
-const resetPassword = async(req, res) => {
+
+/**
+ * Updates user password
+ * @param {Object} req - HTTP request
+ * @param {Object} res - HTTP response
+ */
+const resetPassword = async (req, res) => {
     try {
         const { email, newPassword, token } = req.body;
 
@@ -462,7 +491,13 @@ const resetPassword = async(req, res) => {
     }
 };
 
-const remindApply = async(req, res) => {
+
+/**
+ * Sends reminder to fill out application
+ * @param {Object} req - HTTP request
+ * @param {Object} res - HTTP response
+ */
+const remindApply = async (req, res) => {
     try {
         const remind = await Applicant.find({ applicationStatus: "not applied" });
 
@@ -477,7 +512,13 @@ const remindApply = async(req, res) => {
     }
 };
 
-const remindConfirm = async(req, res) => {
+
+/**
+ * Sends reminder to confirm attendance
+ * @param {Object} req - HTTP request
+ * @param {Object} res - HTTP response
+ */
+const remindConfirm = async (req, res) => {
     try {
         const remind = await Applicant.find({ applicationStatus: "accepted" });
 
@@ -492,7 +533,13 @@ const remindConfirm = async(req, res) => {
     }
 };
 
-const emailConfirmation = async(req, res) => {
+
+/**
+ * Mark user email verified
+ * @param {Object} req - HTTP request
+ * @param {Object} res - HTTP response
+ */
+const emailConfirmation = async (req, res) => {
     try {
         const { emailConfirmationToken, email } = req.body;
 
@@ -515,7 +562,13 @@ const emailConfirmation = async(req, res) => {
     }
 };
 
-const resend = async(req, res) => {
+
+/**
+ * Resends email confirmation token
+ * @param {Object} req - HTTP request
+ * @param {Object} res - HTTP response
+ */
+const resend = async (req, res) => {
     try {
         const { email } = req.body;
 
@@ -524,6 +577,9 @@ const resend = async(req, res) => {
         const applicant = await Applicant.findOneAndUpdate({ email }, {
             emailConfirmationToken
         });
+
+        if (!emailConfirmationToken) throw new Error(["Email is already verified"])
+
         mailService.emailVerification(applicant);
 
         httpResponse.successResponse(res, "success");
