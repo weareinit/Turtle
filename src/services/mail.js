@@ -37,7 +37,7 @@ const emailVerification = ({ email, emailConfirmationToken, firstName, lastName 
         to: email,
         bcc: POC_EMAIL,
         'h:Reply-To': POC_EMAIL,
-        subject: "Here, have a token",
+        subject: "ShellHacks Verification Code",
         template: "verify_email",
         context: { emailConfirmationToken, firstName, lastName }
     };
@@ -54,7 +54,7 @@ const accountConfirmation = ({ email, firstName, lastName }) => {
         to: email,
         bcc: POC_EMAIL,
         'h:Reply-To': POC_EMAIL,
-        subject: "Your ShellHacks Account Was Created",
+        subject: "Your Account Was Created",
         template: "account_confirmation",
         context: {
             firstName,
@@ -94,7 +94,7 @@ const applicantionConfirmation = ({ email, firstName, lastName }) => {
         to: email,
         bcc: POC_EMAIL,
         'h:Reply-To': POC_EMAIL,
-        subject: "We've received your application",
+        subject: "Your Application Was Received",
         template: "application_confirmation",
         context: {
             firstName,
@@ -174,7 +174,7 @@ const forgotPassword = ({ email, firstName, lastName, resetPasswordToken }) => {
         to: email,
         bcc: POC_EMAIL,
         'h:Reply-To': POC_EMAIL,
-        subject: "Here's your Reset Token",
+        subject: "Forgot Password",
         template: "forgot_password",
         context: {
             firstName,
@@ -195,7 +195,7 @@ const resetPassword = ({ email, firstName, lastName }) => {
         to: email,
         bcc: POC_EMAIL,
         'h:Reply-To': POC_EMAIL,
-        subject: "Your Pasword Was Successfully Updated",
+        subject: "Your Password Has Been Updated",
         template: "reset_password",
         context: {
             firstName,
