@@ -8,7 +8,7 @@ const create = (req, res) => {
   const { password } = req.body;
   const expiresIn = 60 * 60 * 144; // 144 hours
 
-  if (password == DASHBOARD_PASSWORD) {
+  if (password === DASHBOARD_PASSWORD) {
     const token = jwt.sign({ key: DASHBOARD_PASSWORD }, SECRET_KEY, {
       expiresIn // expire in 6 hours
     });
@@ -19,7 +19,7 @@ const create = (req, res) => {
     });
   }
 
-  httpResponse.failureResponse(res, "Incorrect Password.");
+  return httpResponse.failureResponse(res, "Incorrect Password.");
 };
 
 export default { create };

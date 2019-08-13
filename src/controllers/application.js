@@ -155,7 +155,7 @@ const read = async(req, res) => {
             checkedInCount
         });
     } catch (e) {
-        return httpResponse.failureResponse(res, e);
+        return httpResponse.failureResponse(res, e.toString());
     }
 };
 
@@ -167,7 +167,7 @@ const readOne = async(req, res) => {
 
         httpResponse.successResponse(res, user);
     } catch (e) {
-        httpResponse.failureResponse(res, e);
+        httpResponse.failureResponse(res, e.toString());
     }
 };
 
@@ -202,7 +202,7 @@ const update = async(req, res) => {
             httpResponse.successResponse(res, null);
         }
     } catch (e) {
-        httpResponse.failureResponse(res, e);
+        httpResponse.failureResponse(res, e.toString());
     }
 };
 
@@ -220,7 +220,7 @@ const accept = async(req, res) => {
 
         return httpResponse.successResponse(res, null);
     } catch (e) {
-        return httpResponse.failureResponse(res, e);
+        return httpResponse.failureResponse(res, e.toString());
     }
 };
 
@@ -232,14 +232,14 @@ const confirm = async(req, res) => {
         const user = await Applicant.findOneAndUpdate({ email }, { applicationStatus: "confirmed" }).exec();
         return httpResponse.successResponse(res, null);
     } catch (e) {
-        return httpResponse.failureResponse(res, e);
+        return httpResponse.failureResponse(res, e.toString());
     }
 };
 
 const apply = async(req, res) => {
 
     fileService.extractResume(req, res, async err => {
-        if (err) return httpResponse.failureResponse(res, err);
+        if (err) return httpResponse.failureResponse(res, err.toString());
         const { file } = req;
         // console.log(req)
         const {
@@ -355,7 +355,7 @@ const apply = async(req, res) => {
             return httpResponse.successResponse(res, null);
         } catch (e) {
             logger.info({ e, application: "Hacker", email: fields.email });
-            return httpResponse.failureResponse(res, e);
+            return httpResponse.failureResponse(res, e.toString());
         }
     });
 };
@@ -367,7 +367,7 @@ const login = async(req, res) => {
 
         if (!user) throw new Error(["Wrong login info"]);
 
-        if(!user.emailConfirmed) return httpResponse.failureResponse(res, "Email not verfied");
+        if(!user.emailConfirmed) return httpResponse.failureResponse(res, new Error("Email not verfied").toString());
 
         const correctPass = bcrypt.compareSync(password, user.password);
         if (!correctPass) throw new Error(["Wrong login info"]);
@@ -382,7 +382,7 @@ const login = async(req, res) => {
 
         return httpResponse.successResponse(res, { JWT, shellID });
     } catch (e) {
-        return httpResponse.failureResponse(res, e);
+        return httpResponse.failureResponse(res, e.toString());
     }
 };
 
@@ -394,7 +394,7 @@ const unconfirm = async(req, res) => {
         httpResponse.successResponse(res, unconfirmation);
     } catch (e) {
         logger.info({ e, application: "Hacker" });
-        httpResponse.failureResponse(res, e);
+        httpResponse.failureResponse(res, e.toString());
     }
 };
 
@@ -406,7 +406,7 @@ const checkIn = async(req, res) => {
 
         httpResponse.successResponse(res, checkedIn);
     } catch (e) {
-        httpResponse.failureResponse(res, e);
+        httpResponse.failureResponse(res, e.toString());
     }
 };
 
@@ -434,7 +434,7 @@ const forgotPassword = async(req, res) => {
         httpResponse.successResponse(res, "Reset password email sent");
     } catch (err) {
         logger.info();
-        httpResponse.failureResponse(res, err);
+        httpResponse.failureResponse(res, err.toString());
     }
 };
 
@@ -458,7 +458,7 @@ const resetPassword = async(req, res) => {
 
         httpResponse.successResponse(res, "Email succesfully reset");
     } catch (err) {
-        httpResponse.failureResponse(res, err);
+        httpResponse.failureResponse(res, err.toString());
     }
 };
 
@@ -473,7 +473,7 @@ const remindApply = async(req, res) => {
         httpResponse.successResponse(res, null);
     } catch (e) {
         logger.info({ e });
-        httpResponse.failureResponse(res, e);
+        httpResponse.failureResponse(res, e.toString());
     }
 };
 
@@ -488,7 +488,7 @@ const remindConfirm = async(req, res) => {
         httpResponse.successResponse(res, null);
     } catch (e) {
         logger.info({ e });
-        httpResponse.failureResponse(res, e);
+        httpResponse.failureResponse(res, e.toString());
     }
 };
 
@@ -504,14 +504,14 @@ const emailConfirmation = async(req, res) => {
         });
 
         if (applicant === null) {
-            return httpResponse.failureResponse(res, "User not found");
+            return httpResponse.failureResponse(res, new Error("User not found").toString());
         }
 
         mailService.accountConfirmation(applicant);
         httpResponse.successResponse(res, "success");
     } catch (e) {
         logger.info({ e });
-        httpResponse.failureResponse(res, e);
+        httpResponse.failureResponse(res, e.toString());
     }
 };
 
@@ -529,7 +529,7 @@ const resend = async(req, res) => {
         httpResponse.successResponse(res, "success");
     } catch (e) {
         logger.info(e);
-        httpResponse.failureResponse(res, e);
+        httpResponse.failureResponse(res, e.toString());
     }
 };
 
