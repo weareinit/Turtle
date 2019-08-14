@@ -35,9 +35,8 @@ const emailVerification = ({ email, emailConfirmationToken, firstName, lastName 
     const mail = {
         from: `ShellHacks <${MAILGUN_EMAIL}>`,
         to: email,
-        bcc: POC_EMAIL,
         'h:Reply-To': POC_EMAIL,
-        subject: "Here, have a token",
+        subject: "ShellHacks Verification Code",
         template: "verify_email",
         context: { emailConfirmationToken, firstName, lastName }
     };
@@ -52,9 +51,8 @@ const accountConfirmation = ({ email, firstName, lastName }) => {
     const mail = {
         from: `ShellHacks <${MAILGUN_EMAIL}>`,
         to: email,
-        bcc: POC_EMAIL,
         'h:Reply-To': POC_EMAIL,
-        subject: "Your ShellHacks Account Was Created",
+        subject: "Your Account Was Created",
         template: "account_confirmation",
         context: {
             firstName,
@@ -72,7 +70,6 @@ const applicationReminder = ({ email, firstName, lastName }) => {
     const mail = {
         from: `ShellHacks <${MAILGUN_EMAIL}>`,
         to: email,
-        bcc: POC_EMAIL,
         'h:Reply-To': POC_EMAIL,
         subject: "Please submit your application ASAP",
         template: "application_reminder",
@@ -92,9 +89,8 @@ const applicantionConfirmation = ({ email, firstName, lastName }) => {
     const mail = {
         from: `ShellHacks <${MAILGUN_EMAIL}>`,
         to: email,
-        bcc: POC_EMAIL,
         'h:Reply-To': POC_EMAIL,
-        subject: "We've received your application",
+        subject: "Your Application Was Received",
         template: "application_confirmation",
         context: {
             firstName,
@@ -112,7 +108,6 @@ const acceptReminder = ({ email, firstName, lastName }) => {
     const mail = {
         from: `ShellHacks <${MAILGUN_EMAIL}>`,
         to: email,
-        bcc: POC_EMAIL,
         'h:Reply-To': POC_EMAIL,
         subject: "Don't Forgot to Confirm Your Attendance",
         template: "acceptance_confirmation_reminder",
@@ -132,7 +127,6 @@ const accepted = ({ email, firstName, lastName }) => {
     const mail = {
         from: `ShellHacks <${MAILGUN_EMAIL}>`,
         to: email,
-        bcc: POC_EMAIL,
         'h:Reply-To': POC_EMAIL,
         subject: "You've Been Accepted to ShellHacks",
         template: "acceptance",
@@ -152,7 +146,6 @@ const acceptedConfirmation = ({ email, firstName, lastName }) => {
     const mail = {
         from: `ShellHacks <${MAILGUN_EMAIL}>`,
         to: email,
-        bcc: POC_EMAIL,
         'h:Reply-To': POC_EMAIL,
         subject: "You are All Set For ShellHacks",
         template: "accepted_confirmation",
@@ -172,9 +165,8 @@ const forgotPassword = ({ email, firstName, lastName, resetPasswordToken }) => {
     const mail = {
         from: `ShellHacks <${MAILGUN_EMAIL}>`,
         to: email,
-        bcc: POC_EMAIL,
         'h:Reply-To': POC_EMAIL,
-        subject: "Here's your Reset Token",
+        subject: "Forgot Password",
         template: "forgot_password",
         context: {
             firstName,
@@ -193,9 +185,8 @@ const resetPassword = ({ email, firstName, lastName }) => {
     const mail = {
         from: `ShellHacks <${MAILGUN_EMAIL}>`,
         to: email,
-        bcc: POC_EMAIL,
         'h:Reply-To': POC_EMAIL,
-        subject: "Your Pasword Was Successfully Updated",
+        subject: "Your Password Has Been Updated",
         template: "reset_password",
         context: {
             firstName,
@@ -229,7 +220,6 @@ const customMail = (
     const mail = {
         from: `ShellHacks <${MAILGUN_EMAIL}>`,
         to: email,
-        bcc: POC_EMAIL,
         'h:Reply-To': POC_EMAIL,
         subject: subject || "Update From ShellHacks",
         template: "default",

@@ -22,7 +22,7 @@ const create = async (req, res) => {
     httpResponse.successResponse(res, "success");
   } catch (e) {
     logger.info(e);
-    httpResponse.failureResponse(res, e);
+    httpResponse.failureResponse(res, e.toString());
   }
 };
 
@@ -35,7 +35,7 @@ const read = async (req, res) => {
     httpResponse.successResponse(res, announcement);
   } catch (e) {
     logger.info(e);
-    httpResponse.failureResponse(res, e);
+    httpResponse.failureResponse(res, e.toString());
   }
 };
 
@@ -57,7 +57,7 @@ const announce = async (req, res) => {
     httpResponse.successResponse(res, "success");
   } catch (e) {
     logger.info(e);
-    httpResponse.failureResponse(res, e);
+    httpResponse.failureResponse(res, e.toString());
   }
 };
 
@@ -80,7 +80,7 @@ const update = async (req, res) => {
     httpResponse.successResponse(res, announcement);
   } catch (e) {
     logger.info(e);
-    httpResponse.failureResponse(res, e);
+    httpResponse.failureResponse(res, e.toString());
   }
 };
 
@@ -93,7 +93,7 @@ const remove = async (req, res) => {
     httpResponse.successResponse(res, "success");
   } catch (e) {
     logger.info(e);
-    httpResponse.failureResponse(res, e);
+    httpResponse.failureResponse(res, e.toString());
   }
 };
 
