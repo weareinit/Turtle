@@ -572,7 +572,7 @@ const resend = async (req, res) => {
     try {
         const { email } = req.body;
 
-        const emailConfirmationToken = await crypto.randomBytes(8).toString("hex");
+        const emailConfirmationToken = await createID.makeid(6).toUpperCase();
 
         const applicant = await Applicant.findOneAndUpdate({ email }, {
             emailConfirmationToken
