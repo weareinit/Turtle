@@ -110,43 +110,64 @@ const create = async (req, res) => {
  * @param {Object} res - HTTP response
  */
 const read = async (req, res) => {
-    const { page = 0, limit = 30, q, filter } = req.query;
-
+    const { page = 0, limit = 30, q, filter} = req.query;
+  
     const queryLimit = parseInt(Math.abs(limit));
     const pageQuery = parseInt(Math.abs(page)) * queryLimit;
-
+  
     const currentPage = pageQuery / queryLimit;
-
+  
     let searchCriteria = {};
     try {
-        if (q && q.length > 0 && q !== "") {
-            searchCriteria = {
-                $or: [
-                    { firstName: new RegExp(`.*${q}.*`, "i") },
-                    { lastName: new RegExp(`.*${q}.*`, "i") },
-                    { email: new RegExp(`.*${q}.*`, "i") },
-                    { schoolName: new RegExp(`.*${q}.*`, "i") }
-                ]
-            };
+      if (q && q.length > 0 && q !== "") {
+        searchCriteria = {
+          $or: [
+            { firstName: new RegExp(".*" + q + ".*", "i") },
+            { lastName: new RegExp(".*" + q + ".*", "i") },
+            { email: new RegExp(".*" + q + ".*", "i") },
+            { schoolName: new RegExp(".*" + q + ".*", "i") }
+          ]
         }
-
-        filter ? (searchCriteria.$and = [{ applicationStatus: filter }]) : null;
-
-        const allApplicants = await Applicant.find(searchCriteria)
-
-        return httpResponse.successResponse(res, {
-            overallPages,
-            currentQuery,
-            count,
-            currentPage,
-            applicants,
-            allApplicants,
-            checkedInCount
-        });
-    } catch (e) {
-        return httpResponse.failureResponse(res, e.toString());
+      }
+  
+      filter ? searchCriteria['$and'] = [{ applicationStatus: filter }] : null
+  
+      const allApplicants = await Applicant.find(searchCriteria)
+  
+      const applicants = await Applicant.find(searchCriteria, {
+        _id: 0,
+        __v: 0
+      })
+        .skip(pageQuery)
+        .limit(queryLimit)
+        .sort({ timestamp: -1 });
+  
+      if (!applicants || applicants.length <= 0) {
+        throw new Error("No Applicants found.");
+      }
+  
+      const count = await Applicant.countDocuments(searchCriteria);
+      const checkedInCount = await Applicant.countDocuments({ checkIn: true });
+      const overallPages = Math.ceil(count / queryLimit);
+      const currentQuery = applicants.length;
+  
+      if (currentPage > overallPages) {
+        throw new Error("Out of range.");
+      }
+  
+      return httpResponse.successResponse(res, {
+        overallPages,
+        currentQuery,
+        count,
+        currentPage,
+        applicants,
+        allApplicants,
+        checkedInCount
+      });
+    }catch(e) {
+      return httpResponse.failureResponse(res, e);
     }
-};
+  };
 
 /**
  * 
