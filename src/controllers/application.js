@@ -309,7 +309,7 @@ const apply = async (req, res) => {
             howDidYouHear,
             reasonForAttending,
             haveBeenToShell,
-            needReimburesment,
+            needReimbursement,
             mlh,
             sponsorPromo,
             mlhAffiliation
@@ -342,7 +342,7 @@ const apply = async (req, res) => {
             howDidYouHear,
             reasonForAttending,
             haveBeenToShell,
-            needReimburesment,
+            needReimbursement,
             mlh,
             sponsorPromo,
             timeApplied: currTime,
