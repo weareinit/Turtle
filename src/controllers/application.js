@@ -242,6 +242,8 @@ const accept = async (req, res) => {
             if (accepted.applicationStatus !== "applied") throw new Error(["User hasn't Applied"]);
 
             accepted = await Applicant.findOneAndUpdate({ shellID }, { applicationStatus: "accepted" }).exec();
+
+            mailService.accepted(accepted);
         });
 
         return httpResponse.successResponse(res, null);
@@ -261,6 +263,8 @@ const confirm = async (req, res) => {
 
     try {
         const user = await Applicant.findOneAndUpdate({ email }, { applicationStatus: "confirmed" }).exec();
+
+        mailService.acceptedConfirmation(user);
         return httpResponse.successResponse(res, null);
     } catch (e) {
         return httpResponse.failureResponse(res, e.toString());
