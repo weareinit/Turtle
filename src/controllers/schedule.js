@@ -8,8 +8,8 @@ const create = async (req, res) => {
       title,
       description,
       host,
-      logo,
-      category,
+      timeCreated,
+      date,
       startTime,
       endTime
     } = req.body;
@@ -18,8 +18,8 @@ const create = async (req, res) => {
       title,
       description,
       host,
-      logo,
-      category,
+      timeCreated,
+      date,
       startTime,
       endTime
     };
@@ -51,8 +51,8 @@ const update = async (req, res) => {
       title,
       description,
       host,
-      logo,
-      category,
+      timeCreated,
+      date,
       startTime,
       endTime
     } = req.body;
@@ -63,8 +63,8 @@ const update = async (req, res) => {
         title,
         description,
         host,
-        logo,
-        category,
+        timeCreated,
+        date,
         startTime,
         endTime
       }
