@@ -15,6 +15,7 @@ import schedule from "../controllers/schedule";
 import sponsor from "../controllers/sponsor";
 import adminAuthMiddleware from "../middleware/adminAuth";
 import hackerAuthMiddleware from "../middleware/hackerAuth";
+import lowerCaseEmails from "../utils/lowerCaseEmails";
 
 const apiRouter = Router();
 
@@ -98,4 +99,7 @@ apiRouter.post("/announcement/announce", adminAuthMiddleware, announcement.annou
 /* ------ Token Route ------ */
 apiRouter.post("/token", token.create);
 
+/* ------ Token Route ------ */
+apiRouter.put("/lower", adminAuthMiddleware, lowerCaseEmails.lower );
+// eslint-disable-next-line import/prefer-default-export
 export { apiRouter };
