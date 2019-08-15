@@ -162,6 +162,7 @@ const acceptedConfirmation = ({ email, firstName, lastName }) => {
  * @param {Object} applicant - user application model
  */
 const forgotPassword = ({ email, firstName, lastName, resetPasswordToken }) => {
+    resetPasswordToken = resetPasswordToken.toUpperCase();
     const mail = {
         from: `ShellHacks <${MAILGUN_EMAIL}>`,
         to: email,
