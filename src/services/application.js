@@ -128,24 +128,43 @@ const resetPasswordValidation = async(email, newPassword, token) => {
   }
 
 const applicationStatistics = async() => {
-    const numApplicants = await Applicant.countDocuments({});
-    const numConfirmed = await Applicant.countDocuments({ applicationStatus: 'confirmed' });
-    const numApplied = await Applicant.countDocuments({ applicationStatus: 'applied' });
-    const numNotApplied = await Applicant.countDocuments({ applicationStatus: 'not applied' });
-    const numAccepted = await Applicant.countDocuments({ applicationStatus: 'accepted' });
-    const numMales = await Applicant.countDocuments({ gender: 'male' });
-    const numFemales = await Applicant.countDocuments({ gender: 'female' });
+  const numApplicants = await Applicant.countDocuments({});
+  const numConfirmed = await Applicant.countDocuments({ applicationStatus: 'confirmed' });
+  const numApplied = await Applicant.countDocuments({ applicationStatus: 'applied' });
+  const numNotApplied = await Applicant.countDocuments({ applicationStatus: 'not applied' });
+  const numAccepted = await Applicant.countDocuments({ applicationStatus: 'accepted' });
+  const numMales = await Applicant.countDocuments({ gender: 'male' });
+  const numFemales = await Applicant.countDocuments({ gender: 'Female' });
 
-    return {
-        numApplicants,
-        numConfirmed,
-        numApplied,
-        numNotApplied,
-        numFemales,
-        numMales,
-        numAccepted
-    }
+  const applicants = await Applicant.find({});
+  const schoolMap = {};
 
+  applicants.map(applicant => {
+    const { schoolName } = applicant;
+
+    schoolMap[schoolName] = schoolMap[schoolName] + 1 || 1;
+  });
+
+  const sortedSchools = [];
+
+  for (let school in schoolMap) {
+    sortedSchools.push([school, schoolMap[school]]);
+  }
+
+  sortedSchools.sort((a, b) => {
+    return b[1] - a[1];
+  });
+
+  return {
+    numApplicants,
+    numConfirmed,
+    numApplied,
+    numNotApplied,
+    numFemales,
+    numMales,
+    numAccepted,
+    sortedSchools
+  };
 }
 
 export default {
