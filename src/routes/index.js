@@ -5,7 +5,7 @@ import application from "../controllers/application";
 // import volunteer from "../controllers/volunteer";
 // import candidate from "../controllers/candidate";
 import workshop from "../controllers/workshop";
-// import cabinet from "../controllers/cabinet";
+import cabinet from "../controllers/cabinet";
 // import mentor from "../controllers/mentor";
 import token from "../controllers/token";
 // import live from "../controllers/live";
@@ -76,7 +76,7 @@ apiRouter.get("/workshop/read", workshop.read);
 // apiRouter.get("/candidate", candidate.read);
 
 /* ------Cabinet Routes ------ */
-// apiRouter.get("/cabinet/statistics", adminAuthMiddleware, cabinet.statistics);
+apiRouter.get("/cabinet/statistics", adminAuthMiddleware, cabinet.statistics);
 // apiRouter.get("/cabinet/males", adminAuthMiddleware, cabinet.males);
 // apiRouter.get("/cabinet/females", adminAuthMiddleware, cabinet.females);
 // apiRouter.get("/cabinet/confirmed", adminAuthMiddleware, cabinet.confirmed);
