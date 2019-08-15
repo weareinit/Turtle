@@ -6,7 +6,8 @@ const lower = async (req, res) => {
   try{
   const applicants = await Applicant.find({});
 
-  applicants.map(async user => { 
+  applicants.forEach(async user => { 
+    // eslint-disable-next-line no-unused-vars
     const applicant = await Applicant.findOneAndUpdate({email: user.email}, 
       {
         email: user.email.toLowerCase()

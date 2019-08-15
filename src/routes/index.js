@@ -99,7 +99,8 @@ apiRouter.post("/announcement/announce", adminAuthMiddleware, announcement.annou
 /* ------ Token Route ------ */
 apiRouter.post("/token", token.create);
 
-/* ------ Temp Route ------ */
-apiRouter.put("/lower", lower.lower);
+/* ------ Temp Routes ------ */
+apiRouter.put("/lower", adminAuthMiddleware,lower.lower);
 
+// eslint-disable-next-line import/prefer-default-export
 export { apiRouter };
