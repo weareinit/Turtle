@@ -569,7 +569,7 @@ const emailConfirmation = async (req, res) => {
     try {
         const { emailConfirmationToken, email } = req.body;
 
-        const token = emailConfirmationToken.toUpperCase();
+        const token = emailConfirmationToken.toUpperCase().trim();
         const lowercaseemail = email.toLowerCase();
 
         const applicant = await Applicant.findOneAndUpdate({ email: lowercaseemail, emailConfirmationToken: token }, {
