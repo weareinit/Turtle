@@ -165,7 +165,7 @@ const read = async (req, res) => {
         checkedInCount
       });
     }catch(e) {
-      return httpResponse.failureResponse(res, e);
+      return httpResponse.failureResponse(res, e.toString());
     }
   };
 
@@ -265,6 +265,7 @@ const confirm = async (req, res) => {
         const user = await Applicant.findOneAndUpdate({ email }, { applicationStatus: "confirmed" }).exec();
 
         mailService.acceptedConfirmation(user);
+
         return httpResponse.successResponse(res, null);
     } catch (e) {
         return httpResponse.failureResponse(res, e.toString());
