@@ -527,8 +527,8 @@ const remindApply = async (req, res) => {
     try {
         const remind = await Applicant.find({ applicationStatus: "not applied" });
 
-        remind.map(applicant => {
-            mailService.applied(applicant);
+        remind.forEach(applicant => {
+            mailService.applicationReminder(applicant);
         });
 
         httpResponse.successResponse(res, null);
@@ -548,8 +548,8 @@ const remindConfirm = async (req, res) => {
     try {
         const remind = await Applicant.find({ applicationStatus: "accepted" });
 
-        remind.map(applicant => {
-            mailService.applied(applicant);
+        remind.forEach(applicant => {
+            mailService.acceptReminder(applicant);
         });
 
         httpResponse.successResponse(res, null);
