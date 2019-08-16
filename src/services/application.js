@@ -119,8 +119,11 @@ const applicationStatistics = async() => {
   const applicants = await Applicant.find({});
   const schoolMap = {};
 
-  applicants.map(applicant => {
+  applicants.forEach(applicant => {
     const { schoolName } = applicant;
+    
+    if(schoolName === 'null' || schoolName === null)
+      return;
 
     schoolMap[schoolName] = schoolMap[schoolName] + 1 || 1;
   });
