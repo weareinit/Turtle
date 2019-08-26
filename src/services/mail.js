@@ -52,7 +52,7 @@ const accountConfirmation = ({ email, firstName, lastName }) => {
         from: `ShellHacks <${MAILGUN_EMAIL}>`,
         to: email,
         'h:Reply-To': POC_EMAIL,
-        subject: "Your Account Was Created",
+        subject: "Your Account Was Created!",
         template: "account_confirmation",
         context: {
             firstName,
@@ -71,7 +71,7 @@ const applicationReminder = ({ email, firstName, lastName }) => {
         from: `ShellHacks <${MAILGUN_EMAIL}>`,
         to: email,
         'h:Reply-To': POC_EMAIL,
-        subject: "Please submit your application ASAP",
+        subject: "Complete Your Application Today!",
         template: "application_reminder",
         context: {
             firstName,
@@ -90,7 +90,7 @@ const applicantionConfirmation = ({ email, firstName, lastName }) => {
         from: `ShellHacks <${MAILGUN_EMAIL}>`,
         to: email,
         'h:Reply-To': POC_EMAIL,
-        subject: "Your Application Was Received",
+        subject: "Your Application Was Received!",
         template: "application_confirmation",
         context: {
             firstName,
@@ -109,7 +109,7 @@ const acceptReminder = ({ email, firstName, lastName }) => {
         from: `ShellHacks <${MAILGUN_EMAIL}>`,
         to: email,
         'h:Reply-To': POC_EMAIL,
-        subject: "Don't Forgot to Confirm Your Attendance",
+        subject: "Don't Forget to Confirm Your Attendance!",
         template: "acceptance_confirmation_reminder",
         context: {
             firstName,
@@ -128,7 +128,7 @@ const accepted = ({ email, firstName, lastName }) => {
         from: `ShellHacks <${MAILGUN_EMAIL}>`,
         to: email,
         'h:Reply-To': POC_EMAIL,
-        subject: "You've Been Accepted to ShellHacks",
+        subject: "You've Been Accepted to ShellHacks!",
         template: "acceptance",
         context: {
             firstName,
@@ -147,7 +147,7 @@ const acceptedConfirmation = ({ email, firstName, lastName }) => {
         from: `ShellHacks <${MAILGUN_EMAIL}>`,
         to: email,
         'h:Reply-To': POC_EMAIL,
-        subject: "You are All Set For ShellHacks",
+        subject: "It's Official! You're All Set For ShellHacks!",
         template: "accepted_confirmation",
         context: {
             firstName,
