@@ -395,7 +395,9 @@ const login = async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        const user = await Applicant.findOne({ email });
+        const lowercaseemail = email.toLowerCase();
+
+        const user = await Applicant.findOne({ email: lowercaseemail });
 
         if (!user) throw new Error(["Wrong login info"]);
 
