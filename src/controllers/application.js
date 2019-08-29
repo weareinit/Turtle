@@ -186,6 +186,17 @@ const readOne = async (req, res) => {
     }
 };
 
+const deleteOne = async (req, res) => {
+  const { shellID } = req.body;
+
+  try{
+    const res = await Applicant.findOneAndDelete({shellID});
+    httpResponse.successResponse(res, 'User deleted');
+  }catch(e){
+    httpResponse.failureResponse(res, e.toString());
+  }
+}
+
 
 /**
  * 
@@ -623,6 +634,7 @@ export default {
     read,
     readOne,
     update,
+    deleteOne,
     confirm,
     apply,
     unconfirm,
