@@ -41,6 +41,7 @@ apiRouter.put("/application/resend",application.resend);
 // apiRouter.post('/admin/notification',expoToken.sendMsgTokens);
 apiRouter.put("/admin/accept", adminAuthMiddleware, application.accept);
 apiRouter.put("/admin/checkIn", adminAuthMiddleware, application.checkIn);
+apiRouter.delete("/admin/delete", adminAuthMiddleware, application.deleteOne);
 apiRouter.get("/admin/remind_confirm", adminAuthMiddleware, application.remindConfirm);
 apiRouter.get("/admin/remind_apply", adminAuthMiddleware, application.remindApply);
 apiRouter.post("/admin/schedule/create", adminAuthMiddleware, schedule.create);
