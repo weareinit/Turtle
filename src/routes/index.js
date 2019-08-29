@@ -16,7 +16,6 @@ import sponsor from "../controllers/sponsor";
 import adminAuthMiddleware from "../middleware/adminAuth";
 import hackerAuthMiddleware from "../middleware/hackerAuth";
 import lowerCaseEmails from "../utils/lowerCaseEmails";
-import Applicant from "../models/applicant";
 
 const apiRouter = Router();
 
