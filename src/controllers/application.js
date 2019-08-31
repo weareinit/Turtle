@@ -190,7 +190,7 @@ const deleteOne = async (req, res) => {
   const { shellID } = req.body;
 
   try{
-    const res = await Applicant.findOneAndDelete({shellID});
+    const user = await Applicant.findOneAndDelete({shellID});
     httpResponse.successResponse(res, 'User deleted');
   }catch(e){
     httpResponse.failureResponse(res, e.toString());
