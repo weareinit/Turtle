@@ -614,13 +614,17 @@ const resend = async (req, res) => {
     try {
         const { email } = req.body;
 
+        const found = await Applicant.findOne({ email });
+
+        if (!found) throw new Error(['Email does not exist']);
+
+        if (found.emailConfirmed) throw new Error(["Email is already verified"]);
+
         const emailConfirmationToken = await createID.makeid(6).toUpperCase();
 
         const applicant = await Applicant.findOneAndUpdate({ email }, {
             emailConfirmationToken
-        });
-
-        if (!emailConfirmationToken) throw new Error(["Email is already verified"])
+        }, { new: true });
 
         mailService.emailVerification(applicant);
 
