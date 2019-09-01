@@ -250,7 +250,9 @@ const accept = async (req, res) => {
         shellIDs.forEach(async shellID => {
             let accepted = await Applicant.findOne({ shellID });
 
-            if (accepted.applicationStatus !== "applied") throw new Error(["User hasn't Applied"]);
+            if (accepted.applicationStatus !== "applied") { 
+              return; 
+            }
 
             accepted = await Applicant.findOneAndUpdate({ shellID }, { applicationStatus: "accepted" }).exec();
 
