@@ -13,7 +13,7 @@ const validate = async (captcha, remoteAddress, RECAPTCHA_KEY) => {
 
   const url = "https://www.google.com/recaptcha/api/siteverify";
   const requestBody = {
-    secret: "hello",
+    secret: RECAPTCHA_KEY,
     response: captcha,
     remoteip: remoteAddress
   };
