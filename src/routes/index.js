@@ -24,11 +24,7 @@ apiRouter.get("/", (req, res) => res.send("Welcome to the beach!"));
 /* ------ Application Routes ------ */
 apiRouter.get("/application", adminAuthMiddleware, application.read);
 apiRouter.post("/application", application.create);
-apiRouter.post(
-  "/application/readOne",
-  hackerAuthMiddleware,
-  application.readOne
-);
+apiRouter.put("/application/readOne", hackerAuthMiddleware, application.readOne);
 apiRouter.post("/application/login", application.login);
 apiRouter.put(
   "/application/confirm",
@@ -50,19 +46,12 @@ apiRouter.put("/application/resend", application.resend);
 
 /* ------ Administrator Routes ------ */
 // apiRouter.post('/admin/notification',expoToken.sendMsgTokens);
+apiRouter.post("/application/readOne", hackerAuthMiddleware, application.readOne);
 apiRouter.put("/admin/accept", adminAuthMiddleware, application.accept);
 apiRouter.put("/admin/checkIn", adminAuthMiddleware, application.checkIn);
-apiRouter.delete("/admin/delete", adminAuthMiddleware, application.deleteOne);
-apiRouter.get(
-  "/admin/remind_confirm",
-  adminAuthMiddleware,
-  application.remindConfirm
-);
-apiRouter.get(
-  "/admin/remind_apply",
-  adminAuthMiddleware,
-  application.remindApply
-);
+apiRouter.put("/admin/delete", adminAuthMiddleware, application.deleteOne);
+apiRouter.get("/admin/remind_confirm", adminAuthMiddleware, application.remindConfirm);
+apiRouter.get("/admin/remind_apply", adminAuthMiddleware, application.remindApply);
 apiRouter.post("/admin/schedule/create", adminAuthMiddleware, schedule.create);
 apiRouter.get("/admin/schedule/read", adminAuthMiddleware, schedule.read);
 apiRouter.put("/admin/schedule/update", adminAuthMiddleware, schedule.update);

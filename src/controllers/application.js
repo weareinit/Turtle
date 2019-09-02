@@ -187,10 +187,10 @@ const readOne = async (req, res) => {
 const deleteOne = async (req, res) => {
   const { shellID } = req.body;
 
-  try {
-    const res = await Applicant.findOneAndDelete({ shellID });
-    httpResponse.successResponse(res, "User deleted");
-  } catch (e) {
+  try{
+    const user = await Applicant.findOneAndDelete({shellID});
+    httpResponse.successResponse(res, 'User deleted');
+  }catch(e){
     httpResponse.failureResponse(res, e.toString());
   }
 };
@@ -251,8 +251,9 @@ const accept = async (req, res) => {
     shellIDs.forEach(async shellID => {
       let accepted = await Applicant.findOne({ shellID });
 
-      if (accepted.applicationStatus !== "applied")
-        throw new Error(["User hasn't Applied"]);
+            if (accepted.applicationStatus !== "applied") { 
+              return; 
+            }
 
       accepted = await Applicant.findOneAndUpdate(
         { shellID },
@@ -464,11 +465,8 @@ const unconfirm = async (req, res) => {
 const checkIn = async (req, res) => {
   const { shellID } = req.body;
 
-  try {
-    const checkedIn = await Applicant.findOneAndUpdate(
-      { shellID },
-      { checkIn: true }
-    ).exec();
+    try {
+        const checkedIn = await Applicant.findOneAndUpdate({ shellID }, { checkIn: true }, { new: true }).exec();
 
     httpResponse.successResponse(res, checkedIn);
   } catch (e) {
@@ -625,16 +623,17 @@ const resend = async (req, res) => {
   try {
     const { email } = req.body;
 
-    const emailConfirmationToken = await createID.makeid(6).toUpperCase();
+        const found = await Applicant.findOne({ email });
 
-    const applicant = await Applicant.findOneAndUpdate(
-      { email },
-      {
-        emailConfirmationToken
-      }
-    );
+        if (!found) throw new Error(['Email does not exist']);
 
-    if (!emailConfirmationToken) throw new Error(["Email is already verified"]);
+        if (found.emailConfirmed) throw new Error(["Email is already verified"]);
+
+        const emailConfirmationToken = await createID.makeid(6).toUpperCase();
+
+        const applicant = await Applicant.findOneAndUpdate({ email }, {
+            emailConfirmationToken
+        }, { new: true });
 
     mailService.emailVerification(applicant);
 

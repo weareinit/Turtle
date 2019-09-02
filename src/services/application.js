@@ -122,7 +122,7 @@ const applicationStatistics = async() => {
   applicants.forEach(applicant => {
     const { schoolName } = applicant;
     
-    if(schoolName === 'null' || schoolName === null)
+    if(schoolName === 'null' || schoolName === null || schoolName === 'other' || schoolName === 'Other') 
       return;
 
     schoolMap[schoolName] = schoolMap[schoolName] + 1 || 1;
