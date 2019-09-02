@@ -24,6 +24,7 @@ apiRouter.get("/", (req, res) => res.send("biensupernice."));
 /* ------ Application Routes ------ */
 apiRouter.get("/application", adminAuthMiddleware, application.read);
 apiRouter.post("/application", application.create);
+apiRouter.put("/application/readOne", hackerAuthMiddleware, application.readOne);
 apiRouter.post("/application/login", application.login);
 apiRouter.put("/application/confirm", hackerAuthMiddleware, application.confirm);
 apiRouter.put("/application/update", hackerAuthMiddleware, application.update);
@@ -38,7 +39,7 @@ apiRouter.put("/application/resend",application.resend);
 
 /* ------ Administrator Routes ------ */
 // apiRouter.post('/admin/notification',expoToken.sendMsgTokens);
-apiRouter.post("/admin/readOne", adminAuthMiddleware, application.readOne);
+apiRouter.post("/application/readOne", hackerAuthMiddleware, application.readOne);
 apiRouter.put("/admin/accept", adminAuthMiddleware, application.accept);
 apiRouter.put("/admin/checkIn", adminAuthMiddleware, application.checkIn);
 apiRouter.put("/admin/delete", adminAuthMiddleware, application.deleteOne);
