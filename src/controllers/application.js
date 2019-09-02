@@ -460,7 +460,7 @@ const checkIn = async (req, res) => {
     const { shellID } = req.body;
 
     try {
-        const checkedIn = await Applicant.findOneAndUpdate({ shellID }, { checkIn: true }).exec();
+        const checkedIn = await Applicant.findOneAndUpdate({ shellID }, { checkIn: true }, { new: true }).exec();
 
         httpResponse.successResponse(res, checkedIn);
     } catch (e) {
