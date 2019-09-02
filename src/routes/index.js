@@ -38,7 +38,7 @@ apiRouter.put("/application/resend", application.resend);
 
 /* ------ Administrator Routes ------ */
 // apiRouter.post('/admin/notification',expoToken.sendMsgTokens);
-apiRouter.post("/application/readOne", hackerAuthMiddleware, application.readOne);
+apiRouter.post("/admin/readOne", adminAuthMiddleware, application.readOne);
 apiRouter.put("/admin/accept", adminAuthMiddleware, application.accept);
 apiRouter.put("/admin/checkIn", adminAuthMiddleware, application.checkIn);
 apiRouter.put("/admin/delete", adminAuthMiddleware, application.deleteOne);
