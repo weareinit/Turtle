@@ -181,6 +181,9 @@ const readOne = async (req, res) => {
   try {
     const user = await Applicant.findOne({ shellID });
 
+    if(!user)
+      throw Error("User does not exist");
+
     httpResponse.successResponse(res, user);
   } catch (e) {
     httpResponse.failureResponse(res, e.toString());
