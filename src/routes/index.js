@@ -13,7 +13,6 @@ import token from "../controllers/token";
 // import checkin from "../controllers/checkin";
 import schedule from "../controllers/schedule";
 import sponsor from "../controllers/sponsor";
-import captcha from "../controllers/captcha";
 import adminAuthMiddleware from "../middleware/adminAuth";
 import hackerAuthMiddleware from "../middleware/hackerAuth";
 import lowerCaseEmails from "../utils/lowerCaseEmails";
@@ -21,9 +20,6 @@ import lowerCaseEmails from "../utils/lowerCaseEmails";
 const apiRouter = Router();
 
 apiRouter.get("/", (req, res) => res.send("Welcome to the beach!"));
-
-/* ------ CAPTCHA Routes ------ */
-apiRouter.post("/captcha", captcha.validate);
 
 /* ------ Application Routes ------ */
 apiRouter.get("/application", adminAuthMiddleware, application.read);
