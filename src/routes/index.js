@@ -26,18 +26,10 @@ apiRouter.get("/application", adminAuthMiddleware, application.read);
 apiRouter.post("/application", application.create);
 apiRouter.put("/application/readOne", hackerAuthMiddleware, application.readOne);
 apiRouter.post("/application/login", application.login);
-apiRouter.put(
-  "/application/confirm",
-  hackerAuthMiddleware,
-  application.confirm
-);
+apiRouter.put("/application/confirm",hackerAuthMiddleware,application.confirm);
 apiRouter.put("/application/update", hackerAuthMiddleware, application.update);
 apiRouter.put("/application/apply", hackerAuthMiddleware, application.apply);
-apiRouter.put(
-  "/application/unconfirm",
-  hackerAuthMiddleware,
-  application.unconfirm
-);
+apiRouter.put("/application/unconfirm",hackerAuthMiddleware,application.unconfirm);
 apiRouter.put("/application/forgot_password", application.forgotPassword);
 apiRouter.put("/application/reset_password", application.resetPassword);
 apiRouter.put("/application/confirmation", application.emailConfirmation);
@@ -55,11 +47,7 @@ apiRouter.get("/admin/remind_apply", adminAuthMiddleware, application.remindAppl
 apiRouter.post("/admin/schedule/create", adminAuthMiddleware, schedule.create);
 apiRouter.get("/admin/schedule/read", adminAuthMiddleware, schedule.read);
 apiRouter.put("/admin/schedule/update", adminAuthMiddleware, schedule.update);
-apiRouter.delete(
-  "/admin/schedule/remove",
-  adminAuthMiddleware,
-  schedule.remove
-);
+apiRouter.delete("/admin/schedule/remove",adminAuthMiddleware,schedule.remove);
 
 /* ------ Sponsor Routes ------ */
 apiRouter.post("/admin/sponsor/create", adminAuthMiddleware, sponsor.create);
@@ -100,16 +88,8 @@ apiRouter.get("/cabinet/statistics", adminAuthMiddleware, cabinet.statistics);
 apiRouter.post("/announcement", adminAuthMiddleware, announcement.create);
 apiRouter.get("/announcement", announcement.read);
 apiRouter.put("/announcement/update", adminAuthMiddleware, announcement.update);
-apiRouter.delete(
-  "/announcement/remove",
-  adminAuthMiddleware,
-  announcement.remove
-);
-apiRouter.post(
-  "/announcement/announce",
-  adminAuthMiddleware,
-  announcement.announce
-);
+apiRouter.delete("/announcement/remove",adminAuthMiddleware,announcement.remove);
+apiRouter.post("/announcement/announce",adminAuthMiddleware,announcement.announce);
 
 /* ------ Prereg signup Route ------ */
 // Deprecating this route, this alert is no longer needed
