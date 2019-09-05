@@ -6,7 +6,7 @@ import application from "../controllers/application";
 // import candidate from "../controllers/candidate";
 import workshop from "../controllers/workshop";
 import cabinet from "../controllers/cabinet";
-// import mentor from "../controllers/mentor";
+import mentor from "../controllers/mentor";
 import token from "../controllers/token";
 // import live from "../controllers/live";
 // import walkIn from "../controllers/walkin";
@@ -66,7 +66,7 @@ apiRouter.delete("/admin/sponsor/remove", adminAuthMiddleware, sponsor.remove);
 apiRouter.post("/workshop", workshop.create);
 apiRouter.get("/workshop/read", workshop.read);
 /* ------ Mentor Routes ------ */
-// apiRouter.post("/mentor", mentor.create);
+apiRouter.post("/mentor", mentor.create);
 
 /* ------ Volunteer Routes ------ */
 // apiRouter.post("/volunteer", volunteer.create);
