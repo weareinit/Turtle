@@ -46,7 +46,7 @@ const validateWorkshop = applicant =>
   new Promise(async (resolve, reject) => {
     const isApplicant = await Workshop.findOne({ email: applicant.email });
 
-    if (isApplicant) reject("Workshop is already created.");
+    if (isApplicant) reject("Workshop had already been created.");
 
     const keys = Object.keys(applicant);
     keys.forEach(key => {
@@ -65,7 +65,7 @@ const validateWorkshop = applicant =>
 const validateMentor = applicant =>
   new Promise(async (resolve, reject) => {
     const isApplicant = await Mentor.findOne({ email: applicant.email });
-    if (isApplicant) reject("Mentor is already signed up.");
+    if (isApplicant) reject("This email address is already in use.");
 
     const keys = Object.keys(applicant);
     keys.forEach(key => {

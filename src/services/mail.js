@@ -17,11 +17,11 @@ const gun = nodemailer.createTransport(mg(auth));
 const path = require("path");
 
 const viewEngine = handlebars.create({
-    // Default layout has to be set to null and a path
-    // has to be defined even if you aren't using layouts
-    partialsDir: path.resolve("src/templates"),
-    layoutsDir: path.resolve("src/templates"),
-    defaultLayout: null
+  // Default layout has to be set to null and a path
+  // has to be defined even if you aren't using layouts
+  partialsDir: path.resolve("src/templates"),
+  layoutsDir: path.resolve("src/templates"),
+  defaultLayout: null
 });
 
 const viewPath = path.resolve("src/templates");
@@ -31,16 +31,21 @@ gun.use("compile", nodemailerHandlebars({ viewEngine, viewPath }));
  * Sends user email verification code
  * @param {Object} applicant - user application model
  */
-const emailVerification = ({ email, emailConfirmationToken, firstName, lastName }) => {
-    const mail = {
-        from: `ShellHacks <${MAILGUN_EMAIL}>`,
-        to: email,
-        'h:Reply-To': POC_EMAIL,
-        subject: "ShellHacks Verification Code",
-        template: "verify_email",
-        context: { emailConfirmationToken, firstName, lastName }
-    };
-    gun.sendMail(mail, (err, info) => (err ? console.log(err) : info));
+const emailVerification = ({
+  email,
+  emailConfirmationToken,
+  firstName,
+  lastName
+}) => {
+  const mail = {
+    from: `ShellHacks <${MAILGUN_EMAIL}>`,
+    to: email,
+    "h:Reply-To": POC_EMAIL,
+    subject: "ShellHacks Verification Code",
+    template: "verify_email",
+    context: { emailConfirmationToken, firstName, lastName }
+  };
+  gun.sendMail(mail, (err, info) => (err ? console.log(err) : info));
 };
 
 /**
@@ -48,18 +53,18 @@ const emailVerification = ({ email, emailConfirmationToken, firstName, lastName 
  * @param {Object} applicant - user application model
  */
 const accountConfirmation = ({ email, firstName, lastName }) => {
-    const mail = {
-        from: `ShellHacks <${MAILGUN_EMAIL}>`,
-        to: email,
-        'h:Reply-To': POC_EMAIL,
-        subject: "Your Account Was Created!",
-        template: "account_confirmation",
-        context: {
-            firstName,
-            lastName
-        }
-    };
-    gun.sendMail(mail, (err, info) => (err ? console.log(err) : info));
+  const mail = {
+    from: `ShellHacks <${MAILGUN_EMAIL}>`,
+    to: email,
+    "h:Reply-To": POC_EMAIL,
+    subject: "Your Account Was Created!",
+    template: "account_confirmation",
+    context: {
+      firstName,
+      lastName
+    }
+  };
+  gun.sendMail(mail, (err, info) => (err ? console.log(err) : info));
 };
 
 /**
@@ -67,18 +72,18 @@ const accountConfirmation = ({ email, firstName, lastName }) => {
  * @param {Object} applicant - user application model
  */
 const applicationReminder = ({ email, firstName, lastName }) => {
-    const mail = {
-        from: `ShellHacks <${MAILGUN_EMAIL}>`,
-        to: email,
-        'h:Reply-To': POC_EMAIL,
-        subject: "Complete Your Application Today!",
-        template: "application_reminder",
-        context: {
-            firstName,
-            lastName
-        }
-    };
-    gun.sendMail(mail, (err, info) => (err ? console.log(err) : info));
+  const mail = {
+    from: `ShellHacks <${MAILGUN_EMAIL}>`,
+    to: email,
+    "h:Reply-To": POC_EMAIL,
+    subject: "Complete Your Application Today!",
+    template: "application_reminder",
+    context: {
+      firstName,
+      lastName
+    }
+  };
+  gun.sendMail(mail, (err, info) => (err ? console.log(err) : info));
 };
 
 /**
@@ -86,18 +91,18 @@ const applicationReminder = ({ email, firstName, lastName }) => {
  * @param {Object} applicant - user application model
  */
 const applicantionConfirmation = ({ email, firstName, lastName }) => {
-    const mail = {
-        from: `ShellHacks <${MAILGUN_EMAIL}>`,
-        to: email,
-        'h:Reply-To': POC_EMAIL,
-        subject: "Your Application Was Received!",
-        template: "application_confirmation",
-        context: {
-            firstName,
-            lastName
-        }
-    };
-    gun.sendMail(mail, (err, info) => (err ? console.log(err) : info));
+  const mail = {
+    from: `ShellHacks <${MAILGUN_EMAIL}>`,
+    to: email,
+    "h:Reply-To": POC_EMAIL,
+    subject: "Your Application Was Received!",
+    template: "application_confirmation",
+    context: {
+      firstName,
+      lastName
+    }
+  };
+  gun.sendMail(mail, (err, info) => (err ? console.log(err) : info));
 };
 
 /**
@@ -105,18 +110,18 @@ const applicantionConfirmation = ({ email, firstName, lastName }) => {
  * @param {Object} applicant - user application model
  */
 const acceptReminder = ({ email, firstName, lastName }) => {
-    const mail = {
-        from: `ShellHacks <${MAILGUN_EMAIL}>`,
-        to: email,
-        'h:Reply-To': POC_EMAIL,
-        subject: "Don't Forget to Confirm Your Attendance!",
-        template: "acceptance_confirmation_reminder",
-        context: {
-            firstName,
-            lastName
-        }
-    };
-    gun.sendMail(mail, (err, info) => (err ? console.log(err) : info));
+  const mail = {
+    from: `ShellHacks <${MAILGUN_EMAIL}>`,
+    to: email,
+    "h:Reply-To": POC_EMAIL,
+    subject: "Don't Forget to Confirm Your Attendance!",
+    template: "acceptance_confirmation_reminder",
+    context: {
+      firstName,
+      lastName
+    }
+  };
+  gun.sendMail(mail, (err, info) => (err ? console.log(err) : info));
 };
 
 /**
@@ -124,18 +129,18 @@ const acceptReminder = ({ email, firstName, lastName }) => {
  * @param {Object} applicant - user application model
  */
 const accepted = ({ email, firstName, lastName }) => {
-    const mail = {
-        from: `ShellHacks <${MAILGUN_EMAIL}>`,
-        to: email,
-        'h:Reply-To': POC_EMAIL,
-        subject: "You've Been Accepted to ShellHacks!",
-        template: "acceptance",
-        context: {
-            firstName,
-            lastName
-        }
-    };
-    gun.sendMail(mail, (err, info) => (err ? console.log(err) : info));
+  const mail = {
+    from: `ShellHacks <${MAILGUN_EMAIL}>`,
+    to: email,
+    "h:Reply-To": POC_EMAIL,
+    subject: "You've Been Accepted to ShellHacks!",
+    template: "acceptance",
+    context: {
+      firstName,
+      lastName
+    }
+  };
+  gun.sendMail(mail, (err, info) => (err ? console.log(err) : info));
 };
 
 /**
@@ -143,18 +148,18 @@ const accepted = ({ email, firstName, lastName }) => {
  * @param {Object} applicant - user application model
  */
 const acceptedConfirmation = ({ email, firstName, lastName }) => {
-    const mail = {
-        from: `ShellHacks <${MAILGUN_EMAIL}>`,
-        to: email,
-        'h:Reply-To': POC_EMAIL,
-        subject: "It's Official! You're All Set For ShellHacks!",
-        template: "accepted_confirmation",
-        context: {
-            firstName,
-            lastName
-        }
-    };
-    gun.sendMail(mail, (err, info) => (err ? console.log(err) : info));
+  const mail = {
+    from: `ShellHacks <${MAILGUN_EMAIL}>`,
+    to: email,
+    "h:Reply-To": POC_EMAIL,
+    subject: "It's Official! You're All Set For ShellHacks!",
+    template: "accepted_confirmation",
+    context: {
+      firstName,
+      lastName
+    }
+  };
+  gun.sendMail(mail, (err, info) => (err ? console.log(err) : info));
 };
 
 /**
@@ -162,20 +167,20 @@ const acceptedConfirmation = ({ email, firstName, lastName }) => {
  * @param {Object} applicant - user application model
  */
 const forgotPassword = ({ email, firstName, lastName, resetPasswordToken }) => {
-    resetPasswordToken = resetPasswordToken.toUpperCase();
-    const mail = {
-        from: `ShellHacks <${MAILGUN_EMAIL}>`,
-        to: email,
-        'h:Reply-To': POC_EMAIL,
-        subject: "Forgot Password",
-        template: "forgot_password",
-        context: {
-            firstName,
-            lastName,
-            resetPasswordToken
-        }
-    };
-    gun.sendMail(mail, (err, info) => (err ? console.log(err) : info));
+  resetPasswordToken = resetPasswordToken.toUpperCase();
+  const mail = {
+    from: `ShellHacks <${MAILGUN_EMAIL}>`,
+    to: email,
+    "h:Reply-To": POC_EMAIL,
+    subject: "Forgot Password",
+    template: "forgot_password",
+    context: {
+      firstName,
+      lastName,
+      resetPasswordToken
+    }
+  };
+  gun.sendMail(mail, (err, info) => (err ? console.log(err) : info));
 };
 
 /**
@@ -183,18 +188,37 @@ const forgotPassword = ({ email, firstName, lastName, resetPasswordToken }) => {
  * @param {Object} applicant - user application model
  */
 const resetPassword = ({ email, firstName, lastName }) => {
-    const mail = {
-        from: `ShellHacks <${MAILGUN_EMAIL}>`,
-        to: email,
-        'h:Reply-To': POC_EMAIL,
-        subject: "Your Password Has Been Updated",
-        template: "reset_password",
-        context: {
-            firstName,
-            lastName
-        }
-    };
-    gun.sendMail(mail, (err, info) => (err ? console.log(err) : info));
+  const mail = {
+    from: `ShellHacks <${MAILGUN_EMAIL}>`,
+    to: email,
+    "h:Reply-To": POC_EMAIL,
+    subject: "Your Password Has Been Updated",
+    template: "reset_password",
+    context: {
+      firstName,
+      lastName
+    }
+  };
+  gun.sendMail(mail, (err, info) => (err ? console.log(err) : info));
+};
+
+/**
+ * Confirms mentor application has been submitted
+ * @param {Object} applicant - user application model
+ */
+const mentor = ({ email, firstName, lastName }) => {
+  const mail = {
+    from: `ShellHacks <${MAILGUN_EMAIL}>`,
+    to: email,
+    "h:Reply-To": POC_EMAIL,
+    subject: "Your Application was submitted!",
+    template: "mentor_confirmation",
+    context: {
+      firstName,
+      lastName
+    }
+  };
+  gun.sendMail(mail, (err, info) => (err ? console.log(err) : info));
 };
 
 /**
@@ -209,53 +233,54 @@ const resetPassword = ({ email, firstName, lastName }) => {
  * @param {String} actionURL - action button link
  */
 const customMail = (
-    email,
-    subject,
-    firstName,
-    lastName,
-    title,
-    paragraph,
-    action,
-    actionURL
+  email,
+  subject,
+  firstName,
+  lastName,
+  title,
+  paragraph,
+  action,
+  actionURL
 ) => {
-    const mail = {
-        from: `ShellHacks <${MAILGUN_EMAIL}>`,
-        to: email,
-        'h:Reply-To': POC_EMAIL,
-        subject: subject || "Update From ShellHacks",
-        template: "default",
-        context: {
-            firstName,
-            lastName,
-            title,
-            paragraph,
-            action,
-            actionURL
-        }
-    };
-    gun.sendMail(mail, (err, info) => (err ? console.log(err) : info));
+  const mail = {
+    from: `ShellHacks <${MAILGUN_EMAIL}>`,
+    to: email,
+    "h:Reply-To": POC_EMAIL,
+    subject: subject || "Update From ShellHacks",
+    template: "default",
+    context: {
+      firstName,
+      lastName,
+      title,
+      paragraph,
+      action,
+      actionURL
+    }
+  };
+  gun.sendMail(mail, (err, info) => (err ? console.log(err) : info));
 };
 
 const error = e => {
-    const mail = {
-        from: "ShellHacks",
-        to: POC_EMAIL,
-        subject: "Oops! Something went wrong",
-        html: e
-    };
-    return gun.sendMail(mail);
+  const mail = {
+    from: "ShellHacks",
+    to: POC_EMAIL,
+    subject: "Oops! Something went wrong",
+    html: e
+  };
+  return gun.sendMail(mail);
 };
 
 export default {
-    emailVerification,
-    accountConfirmation,
-    forgotPassword,
-    resetPassword,
-    applicationReminder,
-    applicantionConfirmation,
-    accepted,
-    acceptReminder,
-    acceptedConfirmation,
-    customMail,
-    error
+  emailVerification,
+  accountConfirmation,
+  forgotPassword,
+  resetPassword,
+  applicationReminder,
+  applicantionConfirmation,
+  accepted,
+  acceptReminder,
+  acceptedConfirmation,
+  customMail,
+  mentor,
+  error
 };

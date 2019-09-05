@@ -26,7 +26,7 @@ const create = async (req, res) => {
     skills,
     elaborate,
     shirtSize,
-    availibity,
+    availability,
     mlhCOC,
     captcha
   } = req.body;
@@ -41,12 +41,13 @@ const create = async (req, res) => {
     skills,
     elaborate,
     shirtSize,
-    availibity,
+    availability,
     mlhCOC
   };
-
+  const { remoteAddress } = req.connection;
   try {
-    await captchaService.validate(captcha, remoteAddress, RECAPTCHA_KEY);
+    // await captchaService.validate(captcha, remoteAddress, RECAPTCHA_KEY);
+
     await applicationService.validateMentor(fields);
 
     const applicant = await Mentor.create(fields);
@@ -54,7 +55,7 @@ const create = async (req, res) => {
     /**
      * Send applicant email
      */
-    // mailService.mentor(fields);
+    mailService.mentor(fields);
 
     /**
      * Insert applicant in google sheets
