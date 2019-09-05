@@ -1,21 +1,51 @@
 import mailService from "../services/mail";
 import sheets from "../services/google/sheets";
 import applicationService from "../services/application";
+import captchaService from "../services/captcha";
+
 
 import logger from "../utils/logger";
 import httpResponse from "../utils/httpResponses";
 
 import Mentor from "../models/mentor";
 
+
+const { GOOGLE_FOLDER_ID, GOOGLE_SPREADSHEET_ID, SECRET_KEY,RECAPTCHA_KEY } = process.env;
+
 const create = async (req, res) => {
+  const  {
+  firstName,
+  lastName,
+  email,
+  phoneNumber,
+  organization,
+  mentored,
+  skills,
+  elaborate,
+  shirtSize,
+  availibity,
+  mlhCOC,
+  captcha
+  } = req.body;
+  
   const fields = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    skills: req.body.skills
-  };
+    firstName,
+  lastName,
+  email,
+  phoneNumber,
+  organization,
+  mentored,
+  skills,
+  elaborate,
+  shirtSize,
+  availibity,
+  mlhCOC,
+  captcha
+  }
 
   try {
+    
+    await captchaService.validate(captcha, remoteAddress, RECAPTCHA_KEY);
     await applicationService.validateMentor(fields);
 
     const applicant = await Mentor.create(fields);
