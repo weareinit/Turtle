@@ -265,11 +265,9 @@ const accept = async (req, res) => {
         { shellID },
         { applicationStatus: "accepted" }
       ).exec();
-
-      mailService.accepted(accepted);
     });
 
-    return httpResponse.successResponse(res, null);
+    return httpResponse.successResponse(res, 'success');
   } catch (e) {
     return httpResponse.failureResponse(res, e.toString());
   }
@@ -289,9 +287,7 @@ const confirm = async (req, res) => {
       { applicationStatus: "confirmed" }
     ).exec();
 
-    mailService.acceptedConfirmation(user);
-
-    return httpResponse.successResponse(res, null);
+    return httpResponse.successResponse(res, 'success');
   } catch (e) {
     return httpResponse.failureResponse(res, e.toString());
   }
