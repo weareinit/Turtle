@@ -131,7 +131,11 @@ const read = async (req, res) => {
       };
     }
 
-    filter ? (searchCriteria["$and"] = [{ applicationStatus: filter }]) : null;
+    if (filter == "noReimbursement"){
+      searchCriteria["$and"] = [{ applicationStatus: 'applied'}, { needReimbursement: null }]
+    } else {
+      filter ? (searchCriteria["$and"] = [{ applicationStatus: filter }]) : null;
+    }
 
     const allApplicants = await Applicant.find(searchCriteria);
 
