@@ -132,7 +132,7 @@ const read = async (req, res) => {
     }
 
     if (filter == "noReimbursement"){
-      searchCriteria["$and"] = [{ applicationStatus: 'applied'}, { needReimbursement: null }]
+      searchCriteria["$and"] = [{ applicationStatus: 'applied'}, { needReimbursement: 'NO' }]
     } else {
       filter ? (searchCriteria["$and"] = [{ applicationStatus: filter }]) : null;
     }
