@@ -298,6 +298,26 @@ const confirm = async (req, res) => {
 };
 
 /**
+ * Changes a single hacker's status from accepted to cannot go
+ * @param {Object} req - HTTP request
+ * @param {Object} res - HTTP response
+ */
+const cantGo = async (req, res) => {
+  const { email } = req.body;
+
+  try {
+    const user = await Applicant.findOneAndUpdate(
+      { email },
+      { applicationStatus: "can't go" }
+    ).exec();
+
+    return httpResponse.successResponse(res, 'success');
+  } catch (e) {
+    return httpResponse.failureResponse(res, e.toString());
+  }
+};
+
+/**
  * Process user application
  * @param {Object} req - HTTP request
  * @param {Object} res - HTTP response
@@ -675,5 +695,6 @@ export default {
   remindApply,
   emailConfirmation,
   remindConfirm,
-  resend
+  resend,
+  cantGo
 };
