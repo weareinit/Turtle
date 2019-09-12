@@ -1,4 +1,5 @@
-# Turtle
+# Turtle [![Shellhacks](https://hackathon.badge.pw/shellhacks)](https://shellhacks.net)
+
 RESTful services  built upon [hackfiu/pear](https://github.com/hackfiu/pear)
 
 ![Turtle](https://cdn.discordapp.com/attachments/589556333414449152/609210455474438144/Capture.PNG)
