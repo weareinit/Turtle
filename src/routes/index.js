@@ -29,7 +29,7 @@ apiRouter.post("/application/login", application.login);
 apiRouter.put("/application/confirm",hackerAuthMiddleware,application.confirm);
 apiRouter.put("/application/update", hackerAuthMiddleware, application.update);
 apiRouter.put("/application/apply", hackerAuthMiddleware, application.apply);
-apiRouter.put("/application/unconfirm",hackerAuthMiddleware,application.unconfirm);
+apiRouter.put("/application/cant_go",hackerAuthMiddleware,application.cantGo);
 apiRouter.put("/application/forgot_password", application.forgotPassword);
 apiRouter.put("/application/reset_password", application.resetPassword);
 apiRouter.put("/application/confirmation", application.emailConfirmation);
