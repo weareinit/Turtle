@@ -264,6 +264,19 @@ requires admin token
   }
 ```
 
+### GET '/schedule'
+
+```json
+  {
+    "_id": "5d7e9ca2ad9db474d58859bd",
+    "startTime": "2019-09-18T17:00:00-04:00",
+    "endTime": "2019-09-18T18:15:00-04:00",
+    "title": "Nike Info Session",
+    "id": "3faauo088soo4lfdritggduecj",
+    "location": "PG6-112",
+  }
+```
+
 ### PUT '/announcement/update'
 
 requires admin token
