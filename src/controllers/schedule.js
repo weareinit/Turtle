@@ -1,6 +1,7 @@
 import Schedule from "../models/schedule";
 import logger from "../utils/logger";
 import httpResponse from "../utils/httpResponses";
+import Calendar from '../services/google/calendar';
 
 const create = async (req, res) => {
   try {
@@ -92,9 +93,16 @@ const remove = async (req, res) => {
   }
 };
 
+const updateEvents = async (req, res) => {
+  await Calendar.asyncLoad(Schedule);
+
+  httpResponse.successResponse(res, 'done');
+}
+
 export default {
   remove,
   update,
   read,
-  create
+  create,
+  updateEvents
 };
