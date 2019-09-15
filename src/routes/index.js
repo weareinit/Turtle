@@ -44,10 +44,12 @@ apiRouter.put("/admin/checkIn", adminAuthMiddleware, application.checkIn);
 apiRouter.put("/admin/delete", adminAuthMiddleware, application.deleteOne);
 apiRouter.get("/admin/remind_confirm", adminAuthMiddleware, application.remindConfirm);
 apiRouter.get("/admin/remind_apply", adminAuthMiddleware, application.remindApply);
-apiRouter.post("/admin/schedule/create", adminAuthMiddleware, schedule.create);
-apiRouter.get("/admin/schedule/read", adminAuthMiddleware, schedule.read);
-apiRouter.put("/admin/schedule/update", adminAuthMiddleware, schedule.update);
-apiRouter.delete("/admin/schedule/remove",adminAuthMiddleware,schedule.remove);
+// apiRouter.post("/admin/schedule/create", adminAuthMiddleware, schedule.create);
+apiRouter.put("/admin/update_events", adminAuthMiddleware, schedule.updateEvents);
+// apiRouter.delete("/admin/schedule/remove",adminAuthMiddleware,schedule.remove);
+
+/* ------ Event Routes ------ */
+apiRouter.get("/schedule", schedule.read);
 
 /* ------ Sponsor Routes ------ */
 apiRouter.post("/admin/sponsor/create", adminAuthMiddleware, sponsor.create);
