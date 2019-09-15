@@ -146,6 +146,7 @@ const applicationStatistics = async () => {
   });
   const numMales = await Applicant.countDocuments({ gender: "male" });
   const numFemales = await Applicant.countDocuments({ gender: "Female" });
+  const numCantGo = await Applicant.countDocuments({ applicationStatus: 'cant go' });
 
   const applicants = await Applicant.find({});
   const schoolMap = {};
@@ -182,7 +183,8 @@ const applicationStatistics = async () => {
     numFemales,
     numMales,
     numAccepted,
-    sortedSchools
+    sortedSchools,
+    numCantGo
   };
 };
 
