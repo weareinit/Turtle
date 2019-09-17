@@ -488,7 +488,7 @@ const unconfirm = async (req, res) => {
  * @param {Object} req - HTTP request
  * @param {Object} res - HTTP response
  */
-const checkIn = async (req, res) => {
+const hackerCheckIn = async (req, res) => {
   const { shellID } = req.body;
 
   try {
@@ -499,6 +499,40 @@ const checkIn = async (req, res) => {
     ).exec();
 
     httpResponse.successResponse(res, checkedIn);
+  } catch (e) {
+    httpResponse.failureResponse(res, e.toString());
+  }
+};
+
+/**
+ * Checks in user to event
+ * @param {Object} req - HTTP request
+ * @param {Object} res - HTTP response
+ */
+const eventCheckIn = async (req, res) => {
+  const { shellID, eventID} = req.body;
+
+  try {
+    const user = await Applicant.findOne({ shellID });
+
+    if(!user){
+      throw new Error(["User does not exist"]);
+    }
+
+    const { eventsAttended = [] } = user;
+
+    if(eventsAttended.includes(eventID)){
+      throw new Error(["User already checked in to event"]);
+    }
+
+    eventsAttended.push(eventID);
+
+    const updated = await Applicant.findOneAndUpdate(
+        { shellID },
+        { eventsAttended }
+      ).exec();
+
+    httpResponse.successResponse(res, 'User Checked in');
   } catch (e) {
     httpResponse.failureResponse(res, e.toString());
   }
@@ -690,7 +724,8 @@ export default {
   login,
   forgotPassword,
   resetPassword,
-  checkIn,
+  hackerCheckIn,
+  eventCheckIn,
   accept,
   remindApply,
   emailConfirmation,
