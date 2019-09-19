@@ -529,7 +529,7 @@ const eventCheckIn = async (req, res) => {
 
     const updated = await Applicant.findOneAndUpdate(
         { shellID },
-        { eventsAttended }
+        { eventsAttended, eventsCount: eventsAttended.length}
       ).exec();
 
     httpResponse.successResponse(res, 'User Checked in');

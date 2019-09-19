@@ -37,6 +37,7 @@ const create = async (req, res) => {
 const read = async (req, res) => {
   try {
     const schedule = await Schedule.find({});
+    schedule.sort((x,y) => { return new Date(x.startTime) - new Date(y.startTime) });
 
     return httpResponse.successResponse(res, schedule);
   } catch (e) {
