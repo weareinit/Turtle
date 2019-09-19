@@ -11,6 +11,7 @@ import token from "../controllers/token";
 // import live from "../controllers/live";
 // import walkIn from "../controllers/walkin";
 // import checkin from "../controllers/checkin";
+import expoToken from '../controllers/expoToken';
 import schedule from "../controllers/schedule";
 import sponsor from "../controllers/sponsor";
 import adminAuthMiddleware from "../middleware/adminAuth";
@@ -37,7 +38,7 @@ apiRouter.put("/application/resend", application.resend);
 // apiRouter.post("/application/:email/:token",application.confirmEmail);
 
 /* ------ Administrator Routes ------ */
-// apiRouter.post('/admin/notification',expoToken.sendMsgTokens);
+apiRouter.post('/admin/notification',expoToken.sendMsgTokens);
 apiRouter.post("/admin/readOne", adminAuthMiddleware, application.readOne);
 apiRouter.put("/admin/accept", adminAuthMiddleware, application.accept);
 apiRouter.put("/admin/hacker_checkIn", adminAuthMiddleware, application.hackerCheckIn);
@@ -45,7 +46,7 @@ apiRouter.put("/admin/event_checkIn", adminAuthMiddleware, application.eventChec
 apiRouter.put("/admin/delete", adminAuthMiddleware, application.deleteOne);
 apiRouter.get("/admin/remind_confirm", adminAuthMiddleware, application.remindConfirm);
 apiRouter.get("/admin/remind_apply", adminAuthMiddleware, application.remindApply);
-// apiRouter.post("/admin/schedule/create", adminAuthMiddleware, schedule.create);
+apiRouter.post("/admin/announcement", adminAuthMiddleware, announcement.create);
 apiRouter.put("/admin/update_events", adminAuthMiddleware, schedule.updateEvents);
 // apiRouter.delete("/admin/schedule/remove",adminAuthMiddleware,schedule.remove);
 
@@ -59,7 +60,7 @@ apiRouter.put("/admin/sponsor/update", adminAuthMiddleware, sponsor.update);
 apiRouter.delete("/admin/sponsor/remove", adminAuthMiddleware, sponsor.remove);
 
 /* ------ Expo Token routes ------ */
-// apiRouter.post('/expo',expoToken.addToken);
+apiRouter.post('/expo',expoToken.addToken);
 
 /* ------- Day of Routes --------*/
 // apiRouter.post("/walkin", adminAuthMiddleware, walkIn.create);
@@ -88,7 +89,6 @@ apiRouter.get("/cabinet/statistics", adminAuthMiddleware, cabinet.statistics);
 // apiRouter.get("/cabinet/checkin", cabinet.checkedIn);
 
 /* ------ Live-Site Announcements ------ */
-apiRouter.post("/announcement", adminAuthMiddleware, announcement.create);
 apiRouter.get("/announcement", announcement.read);
 apiRouter.put("/announcement/update", adminAuthMiddleware, announcement.update);
 apiRouter.delete("/announcement/remove",adminAuthMiddleware,announcement.remove);

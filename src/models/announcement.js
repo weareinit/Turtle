@@ -5,7 +5,6 @@ const announcementSchema = new mongoose.Schema({
   category: { type: String },
   body: { type: String },
   sentTime: { type: String },
-  author: { type: String, default: "ShellHacks Team" }
 });
 
 const Announcement = mongoose.model("Announcement", announcementSchema);
