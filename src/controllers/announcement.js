@@ -7,17 +7,18 @@ import logger from "../utils/logger";
 
 const create = async (req, res) => {
   try {
-    const { title, category, body, sentTime, author } = req.body;
+    const { title, body, sentTime, tag } = req.body;
 
    const fields = {
       title,
-      category,
+      category: tag,
       body,
       sentTime,
-      author
     };
 
     const announcement = await Announcement.create(fields);
+
+    req.io.emit("announcement", announcement);
 
     httpResponse.successResponse(res, "success");
   } catch (e) {
@@ -28,9 +29,7 @@ const create = async (req, res) => {
 
 const read = async (req, res) => {
   try {
-    const { title } = req.body;
-
-    const announcement = await Announcement.findOne({ title });
+    const announcement = await Announcement.find({});
 
     httpResponse.successResponse(res, announcement);
   } catch (e) {
