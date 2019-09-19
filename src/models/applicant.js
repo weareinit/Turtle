@@ -38,7 +38,8 @@ const applicantSchema = new mongoose.Schema({
     sponsorPromo: { type: Boolean, default: false },
     timeCreated: { type: Date },
     timeApplied: { type: Date },
-    eventsAttended: { type: [String], default: [] }
+    eventsAttended: { type: [String], default: [] },
+    eventsCount: { type: Number, default: 0 }
 });
 
 const Applicant = mongoose.model("Applicant", applicantSchema);
