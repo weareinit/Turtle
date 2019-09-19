@@ -137,14 +137,26 @@ Once you pass it through the inliner, you can now use it as a template.
 }
 ```
 
-### PUT `/admin/checkIn`
--Checks in indicidual hacker based on shellID (needs admin privilages)
+### PUT `/admin/hacker_checkIn`
+-Checks in individual hacker based on shellID (needs admin privilages)
 
 - Example request
 
 ```json
 {
   "shellID": "Id1"
+}
+```
+
+### PUT `/admin/event_checkIn`
+-Checks in indicidual hacker to a specific event based on shellID and eventID (needs admin privilages)
+
+- Example request
+
+```json
+{
+  "shellID": "Id1",
+  "eventID": "EventID1"
 }
 ```
 
@@ -265,6 +277,8 @@ requires admin token
 ```
 
 ### GET '/schedule'
+
+- Example Response
 
 ```json
   {
