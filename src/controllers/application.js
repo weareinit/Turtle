@@ -106,6 +106,85 @@ const create = async (req, res) => {
 };
 
 /**
+ * Creates a user account via walk in
+ * @param {Object} req - HTTP request
+ * @param {Object} res - HTTP response
+ */
+const walkIn = async (req, res) => {
+  const { firstName, lastName, email } = req.body;
+
+  try {
+    await applicationService.validateHacker(req.body);
+
+    const date = new Date();
+
+    let unique = null;
+
+    let id;
+
+    do {
+      id = createID.createId(5);
+
+      unique = await Applicant.findOne({ shellID: id });
+    } while (unique !== null);
+
+    const shellID = id;
+    const avatarID = await createID.createAvatar();
+
+    const lowercaseemail = email.toLowerCase();
+    const hash = bcrypt.hashSync('walkInPass');
+
+    const fields = {
+      firstName,
+      lastName,
+      email: lowercaseemail,
+      password: hash,
+      shellID,
+      emailConfirmationToken: 'walkInToken',
+      applicationStatus: "confirmed",
+      resetPasswordToken: null,
+      resetPasswordExpiration: null,
+      schoolName: null,
+      levelOfStudy: null,
+      graduationYear: null,
+      major: null,
+      gender: null,
+      dob: null,
+      race: null,
+      phoneNumber: null,
+      shirtSize: null,
+      dietaryRestriction: null,
+      firstTimeHack: null,
+      howDidYouHear: null,
+      favoriteEvents: null,
+      areaOfFocus: null,
+      resume: null,
+      linkedIn: null,
+      portfolio: null,
+      github: null,
+      reasonForAttending: null,
+      haveBeenToShell: null,
+      needReimburesment: null,
+      timeCreated: date,
+      timeApplied: null,
+      avatarID,
+      walkIn: true
+    };
+
+    // Insert applicant in the database
+    const applicant = await Applicant.create(fields);
+
+    // Insert applicant in google sheets
+    sheets.write("Applicants", fields);
+
+    return httpResponse.successResponse(res, "success");
+  } catch (e) {
+    logger.info({ e, application: "Hacker", email });
+    return httpResponse.failureResponse(res, e.toString());
+  }
+};
+
+/**
  *
  * @param {Object} req - HTTP request
  * @param {Object} res - HTTP response
@@ -731,5 +810,6 @@ export default {
   emailConfirmation,
   remindConfirm,
   resend,
-  cantGo
+  cantGo,
+  walkIn
 };
