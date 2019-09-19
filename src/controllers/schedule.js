@@ -97,6 +97,8 @@ const remove = async (req, res) => {
 const updateEvents = async (req, res) => {
   await Calendar.asyncLoad(Schedule);
 
+  req.io.emit('schedule_updated');
+
   httpResponse.successResponse(res, 'done');
 }
 

@@ -270,12 +270,6 @@ requires admin token
 ```
 ### GET '/announcement'
 
-```json
-  {
-    "title": "example",
-  }
-```
-
 ### GET '/schedule'
 
 - Example Response
