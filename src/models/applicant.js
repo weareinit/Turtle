@@ -39,7 +39,8 @@ const applicantSchema = new mongoose.Schema({
     timeCreated: { type: Date },
     timeApplied: { type: Date },
     eventsAttended: { type: [String], default: [] },
-    eventsCount: { type: Number, default: 0 }
+    eventsCount: { type: Number, default: 0 },
+    walkIn: { type: Boolean, default: false }
 });
 
 const Applicant = mongoose.model("Applicant", applicantSchema);
