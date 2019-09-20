@@ -1,19 +1,20 @@
 # Turtle [![Shellhacks](https://hackathon.badge.pw/shellhacks)](https://shellhacks.net)
 
-RESTful services  built upon [hackfiu/pear](https://github.com/hackfiu/pear)
+🐢 RESTful services  built upon [hackfiu/pear](https://github.com/hackfiu/pear)
 
-![Turtle](https://cdn.discordapp.com/attachments/589556333414449152/609210455474438144/Capture.PNG)
+![Turtle](https://mail.google.com/mail/u/0?ui=2&ik=6334bb2bbb&attid=0.1.1&permmsgid=msg-f:1645162040007074905&th=16d4ca28b0942459&view=fimg&sz=s0-l75-ft&attbid=ANGjdJ_Xp181iHKdnkgHTqUIMcYADrvpvPLuywwZmZe5uert6WG-7M1Ydqpucpo7n6wo4UE03t604J6iXoeUHd50Qi_EmgZhnaT5zLLfmtShqMFGHYKie2BDT2ZF4f8&disp=emb)
 
-## Start scripts
+---
 
+## Available scripts
+...
 - `yarn dev`: start dev server
 - `yarn start`: build service and start PM2 process with arg `--name Turtle`
 - `yarn restart`: rebuild service and restart named PM2 process
-- `yarn stop`: stop named PM2 process
-- `yarn delete`: delete named PM2 process
-- `yarn build`: run build scripts
-- `yarn logs`
-- `yarn hydrate`
+</br>
+...
+  
+ > See [package.json](https://github.com/UPE-FIU/Turtle/blob/jehf-CI-fixes/package.json) for more details
   
 ## Setting up .env
 
