@@ -1,5 +1,5 @@
 # Turtle [![Shellhacks](https://hackathon.badge.pw/shellhacks)](https://shellhacks.net)
-[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
 
 🐢 RESTful services  built upon [hackfiu/pear](https://github.com/hackfiu/pear)
 
@@ -332,6 +332,7 @@ requires admin token
     <td align="center"><a href="https://upe.cs.fiu.edu"><img src="https://avatars0.githubusercontent.com/u/32716551?v=4" width="50px;" alt="Jehf Denezaire"/><br /><sub><b>Jehf Denezaire</b></sub></a><br /><a href="https://github.com/UPE-FIU/Turtle/commits?author=Jehfkemsy" title="Code">💻</a> <a href="#projectManagement-Jehfkemsy" title="Project Management">📆</a></td>
     <td align="center"><a href="http://mrmcpowned.com"><img src="https://avatars2.githubusercontent.com/u/5028527?v=4" width="50px;" alt="Christopher Rodriguez"/><br /><sub><b>Christopher Rodriguez</b></sub></a><br /><a href="https://github.com/UPE-FIU/Turtle/commits?author=mrmcpowned" title="Code">💻</a></td>
     <td align="center"><a href="https://hackfiu.slack.com"><img src="https://avatars3.githubusercontent.com/u/43051317?v=4" width="50px;" alt="hackFIU"/><br /><sub><b>hackFIU</b></sub></a><br /><a href="https://github.com/UPE-FIU/Turtle/commits?author=hackfiu" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/yasmine0217"><img src="https://avatars3.githubusercontent.com/u/26018436?v=4" width="50px;" alt="Yasmine Abdrabo"/><br /><sub><b>Yasmine Abdrabo</b></sub></a><br /><a href="#content-yasmine0217" title="Content">🖋</a></td>
   </tr>
 </table>
 
