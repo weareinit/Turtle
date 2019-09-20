@@ -22,6 +22,17 @@
         "ideas",
         "maintenance"
       ]
+    },
+    {
+      "login": "Barnes2197",
+      "name": "Maurice Barnes",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/18012649?v=4",
+      "profile": "https://github.com/Barnes2197",
+      "contributions": [
+        "code",
+        "bug",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7
