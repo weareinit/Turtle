@@ -1,5 +1,5 @@
 # Turtle [![Shellhacks](https://hackathon.badge.pw/shellhacks)](https://shellhacks.net)
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 
 🐢 RESTful services  built upon [hackfiu/pear](https://github.com/hackfiu/pear)
 
@@ -328,6 +328,7 @@ requires admin token
   <tr>
     <td align="center"><a href="http://tommycarrascal.me/"><img src="https://avatars3.githubusercontent.com/u/29385045?v=4" width="50px;" alt="Tommy Carrascal"/><br /><sub><b>Tommy Carrascal</b></sub></a><br /><a href="https://github.com/UPE-FIU/Turtle/commits?author=Tommy2016x" title="Code">💻</a> <a href="https://github.com/UPE-FIU/Turtle/issues?q=author%3ATommy2016x" title="Bug reports">🐛</a> <a href="https://github.com/UPE-FIU/Turtle/commits?author=Tommy2016x" title="Documentation">📖</a> <a href="#ideas-Tommy2016x" title="Ideas, Planning, & Feedback">🤔</a> <a href="#maintenance-Tommy2016x" title="Maintenance">🚧</a></td>
     <td align="center"><a href="https://github.com/Barnes2197"><img src="https://avatars1.githubusercontent.com/u/18012649?v=4" width="50px;" alt="Maurice Barnes"/><br /><sub><b>Maurice Barnes</b></sub></a><br /><a href="https://github.com/UPE-FIU/Turtle/commits?author=Barnes2197" title="Code">💻</a> <a href="https://github.com/UPE-FIU/Turtle/issues?q=author%3ABarnes2197" title="Bug reports">🐛</a> <a href="https://github.com/UPE-FIU/Turtle/commits?author=Barnes2197" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/aalexcomas11"><img src="https://avatars2.githubusercontent.com/u/25039166?v=4" width="50px;" alt="aalexcomas11"/><br /><sub><b>aalexcomas11</b></sub></a><br /><a href="https://github.com/UPE-FIU/Turtle/commits?author=aalexcomas11" title="Code">💻</a> <a href="https://github.com/UPE-FIU/Turtle/issues?q=author%3Aaalexcomas11" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
