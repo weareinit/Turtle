@@ -1,5 +1,5 @@
-# Turtle [![Shellhacks](https://hackathon.badge.pw/shellhacks)](https://shellhacks.net)
-[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
+# Turtle 
+[![Shellhacks](https://hackathon.badge.pw/shellhacks)](https://shellhacks.net) [![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
 
 🐢 RESTful services  built upon [hackfiu/pear](https://github.com/hackfiu/pear)
 
