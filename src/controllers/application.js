@@ -111,7 +111,7 @@ const create = async (req, res) => {
  * @param {Object} res - HTTP response
  */
 const walkIn = async (req, res) => {
-  const { firstName, lastName, email } = req.body;
+  const { firstName, lastName, email, password } = req.body;
 
   try {
     await applicationService.validateHacker(req.body);
@@ -132,7 +132,7 @@ const walkIn = async (req, res) => {
     const avatarID = await createID.createAvatar();
 
     const lowercaseemail = email.toLowerCase();
-    const hash = bcrypt.hashSync('walkInPass');
+    const hash = bcrypt.hashSync(password);
 
     const fields = {
       firstName,
@@ -169,7 +169,8 @@ const walkIn = async (req, res) => {
       timeApplied: null,
       avatarID,
       walkIn: true,
-      checkIn: true
+      checkIn: true,
+      emailConfirmed: true
     };
 
     // Insert applicant in the database
