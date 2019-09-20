@@ -1,4 +1,5 @@
 # Turtle [![Shellhacks](https://hackathon.badge.pw/shellhacks)](https://shellhacks.net)
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 
 🐢 RESTful services  built upon [hackfiu/pear](https://github.com/hackfiu/pear)
 
@@ -319,11 +320,19 @@ requires admin token
 
 ## Contributors
 
-[Tommy Carrascal](https://github.com/Tommy2016x)</br>
-[Maurice Barnes](https://github.com/Barnes2197)</br>
-[Alex Comas](https://github.com/aalexcomas11)</br>
-[Jehf Denezaire](https://github.com/Jehfkemsy)</br>
 
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="http://tommycarrascal.me/"><img src="https://avatars3.githubusercontent.com/u/29385045?v=4" width="50px;" alt="Tommy Carrascal"/><br /><sub><b>Tommy Carrascal</b></sub></a><br /><a href="https://github.com/UPE-FIU/Turtle/commits?author=Tommy2016x" title="Code">💻</a> <a href="https://github.com/UPE-FIU/Turtle/issues?q=author%3ATommy2016x" title="Bug reports">🐛</a> <a href="https://github.com/UPE-FIU/Turtle/commits?author=Tommy2016x" title="Documentation">📖</a> <a href="#ideas-Tommy2016x" title="Ideas, Planning, & Feedback">🤔</a> <a href="#maintenance-Tommy2016x" title="Maintenance">🚧</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 Big shout-out to [hackfiu](https://github.com/hackfiu) for making the initial project open source
 ## LICENSE
 
