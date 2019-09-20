@@ -5,11 +5,12 @@
 ---
 
 ## Available scripts
-...
+
+- `...`
 - `yarn dev`: start dev server
 - `yarn start`: build service and start PM2 process with arg `--name Turtle`
 - `yarn restart`: rebuild service and restart named PM2 process
-...
+- `...`
   
  > See [package.json](https://github.com/UPE-FIU/Turtle/blob/jehf-CI-fixes/package.json) for more details
   
