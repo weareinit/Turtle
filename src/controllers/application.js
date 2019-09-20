@@ -168,7 +168,8 @@ const walkIn = async (req, res) => {
       timeCreated: date,
       timeApplied: null,
       avatarID,
-      walkIn: true
+      walkIn: true,
+      checkIn: true
     };
 
     // Insert applicant in the database
