@@ -48,7 +48,7 @@ apiRouter.put("/admin/delete", adminAuthMiddleware, application.deleteOne);
 apiRouter.get("/admin/remind_confirm", adminAuthMiddleware, application.remindConfirm);
 apiRouter.get("/admin/remind_apply", adminAuthMiddleware, application.remindApply);
 apiRouter.post("/admin/announcement", adminAuthMiddleware, announcement.create);
-apiRouter.put("/admin/update_events", adminAuthMiddleware, schedule.updateEvents);
+apiRouter.put("/admin/update_events", schedule.updateEvents);
 // apiRouter.delete("/admin/schedule/remove",adminAuthMiddleware,schedule.remove);
 
 /* ------ Event Routes ------ */
