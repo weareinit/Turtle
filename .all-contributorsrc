@@ -53,6 +53,15 @@
         "code",
         "projectManagement"
       ]
+    },
+    {
+      "login": "mrmcpowned",
+      "name": "Christopher Rodriguez",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/5028527?v=4",
+      "profile": "http://mrmcpowned.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7

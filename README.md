@@ -1,5 +1,5 @@
 # Turtle [![Shellhacks](https://hackathon.badge.pw/shellhacks)](https://shellhacks.net)
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
 
 🐢 RESTful services  built upon [hackfiu/pear](https://github.com/hackfiu/pear)
 
@@ -330,6 +330,7 @@ requires admin token
     <td align="center"><a href="https://github.com/Barnes2197"><img src="https://avatars1.githubusercontent.com/u/18012649?v=4" width="50px;" alt="Maurice Barnes"/><br /><sub><b>Maurice Barnes</b></sub></a><br /><a href="https://github.com/UPE-FIU/Turtle/commits?author=Barnes2197" title="Code">💻</a> <a href="https://github.com/UPE-FIU/Turtle/issues?q=author%3ABarnes2197" title="Bug reports">🐛</a> <a href="https://github.com/UPE-FIU/Turtle/commits?author=Barnes2197" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/aalexcomas11"><img src="https://avatars2.githubusercontent.com/u/25039166?v=4" width="50px;" alt="aalexcomas11"/><br /><sub><b>aalexcomas11</b></sub></a><br /><a href="https://github.com/UPE-FIU/Turtle/commits?author=aalexcomas11" title="Code">💻</a> <a href="https://github.com/UPE-FIU/Turtle/issues?q=author%3Aaalexcomas11" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://upe.cs.fiu.edu"><img src="https://avatars0.githubusercontent.com/u/32716551?v=4" width="50px;" alt="Jehf Denezaire"/><br /><sub><b>Jehf Denezaire</b></sub></a><br /><a href="https://github.com/UPE-FIU/Turtle/commits?author=Jehfkemsy" title="Code">💻</a> <a href="#projectManagement-Jehfkemsy" title="Project Management">📆</a></td>
+    <td align="center"><a href="http://mrmcpowned.com"><img src="https://avatars2.githubusercontent.com/u/5028527?v=4" width="50px;" alt="Christopher Rodriguez"/><br /><sub><b>Christopher Rodriguez</b></sub></a><br /><a href="https://github.com/UPE-FIU/Turtle/commits?author=mrmcpowned" title="Code">💻</a></td>
   </tr>
 </table>
 
