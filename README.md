@@ -1,19 +1,19 @@
-# Turtle [![Shellhacks](https://hackathon.badge.pw/shellhacks)](https://shellhacks.net)
+# Turtle 
+[![Shellhacks](https://hackathon.badge.pw/shellhacks)](https://shellhacks.net) [![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
 
-RESTful services  built upon [hackfiu/pear](https://github.com/hackfiu/pear)
+🐢 RESTful services  built upon [hackfiu/pear](https://github.com/hackfiu/pear)
 
-![Turtle](https://cdn.discordapp.com/attachments/589556333414449152/609210455474438144/Capture.PNG)
+---
 
-## Start scripts
+## Available scripts
 
+- `...`
 - `yarn dev`: start dev server
 - `yarn start`: build service and start PM2 process with arg `--name Turtle`
 - `yarn restart`: rebuild service and restart named PM2 process
-- `yarn stop`: stop named PM2 process
-- `yarn delete`: delete named PM2 process
-- `yarn build`: run build scripts
-- `yarn logs`
-- `yarn hydrate`
+- `...`
+  
+ > See [package.json](https://github.com/UPE-FIU/Turtle/blob/jehf-CI-fixes/package.json) for more details
   
 ## Setting up .env
 
@@ -320,11 +320,28 @@ requires admin token
 
 ## Contributors
 
-[Tommy Carrascal](https://github.com/Tommy2016x)</br>
-[Maurice Barnes](https://github.com/Barnes2197)</br>
-[Alex Comas](https://github.com/aalexcomas11)</br>
-[Jehf Denezaire](https://github.com/Jehfkemsy)</br>
 
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="http://tommycarrascal.me/"><img src="https://avatars3.githubusercontent.com/u/29385045?v=4" width="50px;" alt="Tommy Carrascal"/><br /><sub><b>Tommy Carrascal</b></sub></a><br /><a href="https://github.com/UPE-FIU/Turtle/commits?author=Tommy2016x" title="Code">💻</a> <a href="https://github.com/UPE-FIU/Turtle/issues?q=author%3ATommy2016x" title="Bug reports">🐛</a> <a href="https://github.com/UPE-FIU/Turtle/commits?author=Tommy2016x" title="Documentation">📖</a> <a href="#ideas-Tommy2016x" title="Ideas, Planning, & Feedback">🤔</a> <a href="#maintenance-Tommy2016x" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/Barnes2197"><img src="https://avatars1.githubusercontent.com/u/18012649?v=4" width="50px;" alt="Maurice Barnes"/><br /><sub><b>Maurice Barnes</b></sub></a><br /><a href="https://github.com/UPE-FIU/Turtle/commits?author=Barnes2197" title="Code">💻</a> <a href="https://github.com/UPE-FIU/Turtle/issues?q=author%3ABarnes2197" title="Bug reports">🐛</a> <a href="https://github.com/UPE-FIU/Turtle/commits?author=Barnes2197" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/aalexcomas11"><img src="https://avatars2.githubusercontent.com/u/25039166?v=4" width="50px;" alt="aalexcomas11"/><br /><sub><b>aalexcomas11</b></sub></a><br /><a href="https://github.com/UPE-FIU/Turtle/commits?author=aalexcomas11" title="Code">💻</a> <a href="https://github.com/UPE-FIU/Turtle/issues?q=author%3Aaalexcomas11" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://upe.cs.fiu.edu"><img src="https://avatars0.githubusercontent.com/u/32716551?v=4" width="50px;" alt="Jehf Denezaire"/><br /><sub><b>Jehf Denezaire</b></sub></a><br /><a href="https://github.com/UPE-FIU/Turtle/commits?author=Jehfkemsy" title="Code">💻</a> <a href="#projectManagement-Jehfkemsy" title="Project Management">📆</a></td>
+    <td align="center"><a href="http://mrmcpowned.com"><img src="https://avatars2.githubusercontent.com/u/5028527?v=4" width="50px;" alt="Christopher Rodriguez"/><br /><sub><b>Christopher Rodriguez</b></sub></a><br /><a href="https://github.com/UPE-FIU/Turtle/commits?author=mrmcpowned" title="Code">💻</a></td>
+    <td align="center"><a href="https://hackfiu.slack.com"><img src="https://avatars3.githubusercontent.com/u/43051317?v=4" width="50px;" alt="hackFIU"/><br /><sub><b>hackFIU</b></sub></a><br /><a href="https://github.com/UPE-FIU/Turtle/commits?author=hackfiu" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/yasmine0217"><img src="https://avatars3.githubusercontent.com/u/26018436?v=4" width="50px;" alt="Yasmine Abdrabo"/><br /><sub><b>Yasmine Abdrabo</b></sub></a><br /><a href="#content-yasmine0217" title="Content">🖋</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://abranhe.com"><img src="https://avatars1.githubusercontent.com/u/21347264?v=4" width="50px;" alt="Abraham Hernandez"/><br /><sub><b>Abraham Hernandez</b></sub></a><br /><a href="#tool-abranhe" title="Tools">🔧</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 Big shout-out to [hackfiu](https://github.com/hackfiu) for making the initial project open source
 ## LICENSE
 

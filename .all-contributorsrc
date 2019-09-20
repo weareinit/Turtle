@@ -1,0 +1,95 @@
+{
+  "projectName": "Turtle",
+  "projectOwner": "UPE-FIU",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 50,
+  "commit": true,
+  "commitConvention": "eslint",
+  "contributors": [
+    {
+      "login": "Tommy2016x",
+      "name": "Tommy Carrascal",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/29385045?v=4",
+      "profile": "http://tommycarrascal.me/",
+      "contributions": [
+        "code",
+        "bug",
+        "doc",
+        "ideas",
+        "maintenance"
+      ]
+    },
+    {
+      "login": "Barnes2197",
+      "name": "Maurice Barnes",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/18012649?v=4",
+      "profile": "https://github.com/Barnes2197",
+      "contributions": [
+        "code",
+        "bug",
+        "doc"
+      ]
+    },
+    {
+      "login": "aalexcomas11",
+      "name": "aalexcomas11",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/25039166?v=4",
+      "profile": "https://github.com/aalexcomas11",
+      "contributions": [
+        "code",
+        "bug"
+      ]
+    },
+    {
+      "login": "Jehfkemsy",
+      "name": "Jehf Denezaire",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/32716551?v=4",
+      "profile": "https://upe.cs.fiu.edu",
+      "contributions": [
+        "code",
+        "projectManagement"
+      ]
+    },
+    {
+      "login": "mrmcpowned",
+      "name": "Christopher Rodriguez",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/5028527?v=4",
+      "profile": "http://mrmcpowned.com",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "hackfiu",
+      "name": "hackFIU",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/43051317?v=4",
+      "profile": "https://hackfiu.slack.com",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "yasmine0217",
+      "name": "Yasmine Abdrabo",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/26018436?v=4",
+      "profile": "https://github.com/yasmine0217",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "abranhe",
+      "name": "Abraham Hernandez",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/21347264?v=4",
+      "profile": "https://abranhe.com",
+      "contributions": [
+        "tool"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}

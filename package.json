@@ -46,6 +46,7 @@
         "winston-daily-rotate-file": "^3.5.1"
     },
     "devDependencies": {
+        "all-contributors-cli": "^6.9.1",
         "babel-eslint": "^10.0.0",
         "eslint": "^5.16.0",
         "eslint-config-airbnb": "^17.1.1",
