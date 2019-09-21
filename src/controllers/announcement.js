@@ -30,6 +30,7 @@ const create = async (req, res) => {
 const read = async (req, res) => {
   try {
     const announcement = await Announcement.find({});
+    announcement.sort((x,y) => { return new Date(x.sentTime) - new Date(y.sentTime) });
 
     httpResponse.successResponse(res, announcement);
   } catch (e) {
