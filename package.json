@@ -25,7 +25,7 @@
         "expo-server-sdk": "^3.3.0",
         "express": "^4.16.4",
         "express-handlebars": "^3.0.0",
-        "googleapis": "27",
+        "googleapis": "39",
         "helmet": "^3.14.0",
         "jsonwebtoken": "^8.5.1",
         "mailchimp": "^1.2.1",
